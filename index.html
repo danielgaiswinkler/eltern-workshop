@@ -1200,7 +1200,7 @@
                 </p>
                 <div id="handout-qr" class="qr-placeholder" style="display:flex;align-items:center;justify-content:center;"></div>
                 <p style="font-size: 0.55em; color: var(--text-muted);">
-                    Scannt den Code für das digitale Handout
+                    Scannt den Code &ndash; Handout, WhatsApp-Anleitung &amp; Präsentation
                 </p>
                 <aside class="notes">
                     Handout verteilen oder QR-Code scannen lassen. "Auf dem Handout findet ihr alle Zahlen, alle Links und alle Tipps von heute Abend. Ihr müsst euch nichts merken – nehmt das einfach mit." Wenn das Handout digital ist: QR-Code zeigen und kurz warten, bis alle gescannt haben.
@@ -1237,7 +1237,7 @@
         var el = document.getElementById('handout-qr');
         if (!el) return;
         var qr = qrcode(0, 'M');
-        qr.addData('https://danielgaiswinkler.github.io/eltern-workshop/handout.html');
+        qr.addData('https://danielgaiswinkler.github.io/eltern-workshop/links.html');
         qr.make();
         var count = qr.getModuleCount();
         var cell = 2;
