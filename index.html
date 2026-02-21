@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das erste Smartphone – Was Eltern wissen müssen</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: rgba(255,255,255,0.05);
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --teal: #0d9488;
+            --green: #10b981;
+            --red: #ef4444;
+            --yellow: #eab308;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        .reveal-viewport {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+        }
+
+        .reveal {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 32px;
+            color: var(--text-primary);
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: none;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.6em;
+            text-shadow: none;
+        }
+
+        .reveal h1 {
+            font-size: 2.8em;
+            font-weight: 900;
+        }
+
+        .reveal h2 {
+            font-size: 1.8em;
+            font-weight: 800;
+        }
+
+        .reveal h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .reveal p {
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal .progress {
+            color: var(--amber);
+            height: 4px;
+        }
+
+        .reveal .controls {
+            color: var(--amber);
+        }
+
+        .reveal .slide-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            background: transparent;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        /* --- Utility Classes --- */
+
+        .accent-amber { color: var(--amber); }
+        .accent-teal { color: var(--teal); }
+        .accent-green { color: var(--green); }
+        .accent-red { color: var(--red); }
+        .text-muted { color: var(--text-secondary); }
+        .text-small { font-size: 0.6em; color: var(--text-secondary); }
+        .text-xs { font-size: 0.5em; color: var(--text-muted); }
+
+        .big-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 4em;
+            line-height: 1;
+            margin: 0.2em 0;
+        }
+
+        .big-quote {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.4em;
+            line-height: 1.3;
+            max-width: 800px;
+            margin: 0.5em auto;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.2em 1.5em;
+            margin: 0.5em 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 0.8em;
+            margin-top: 0.8em;
+        }
+
+        .card-grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .card-grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1em 1.2em;
+            text-align: center;
+        }
+
+        .stat-card .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 2.2em;
+            line-height: 1;
+            margin-bottom: 0.15em;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.55em;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
+
+        .ampel-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+            padding: 0.8em 1.2em;
+            border-radius: 12px;
+            margin: 0.5em 0;
+            font-size: 0.8em;
+            text-align: left;
+        }
+
+        .ampel-gruen {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .ampel-gelb {
+            background: rgba(234, 179, 8, 0.12);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+
+        .ampel-rot {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .ampel-dot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .app-table {
+            width: 100%;
+            font-size: 0.6em;
+            border-collapse: separate;
+            border-spacing: 0 6px;
+        }
+
+        .app-table th {
+            text-align: left;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 0.4em 0.8em;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .app-table td {
+            padding: 0.6em 0.8em;
+            background: var(--bg-card);
+        }
+
+        .app-table tr td:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .app-table tr td:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: step;
+        }
+
+        .step-list li {
+            counter-increment: step;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6em;
+            margin-bottom: 0.6em;
+            font-size: 0.75em;
+            line-height: 1.4;
+        }
+
+        .step-list li::before {
+            content: counter(step);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.2em;
+            color: var(--amber);
+            min-width: 1.5em;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .tip-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tip-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 0.75em;
+            padding: 0.5em 0.8em;
+            background: var(--bg-card);
+            border-radius: 10px;
+        }
+
+        .tip-icon {
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.15em 0.6em;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .badge-red {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .badge-amber {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+        }
+
+        .badge-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        .principle-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1em 1.2em;
+            text-align: center;
+            border-top: 3px solid;
+        }
+
+        .principle-card h3 {
+            font-size: 1em;
+            margin-bottom: 0.3em;
+        }
+
+        .principle-card p {
+            font-size: 0.55em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            font-size: 0.7em;
+            padding: 0.5em 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.45em;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--amber);
+            border-radius: 2px;
+            margin: 0.5em auto;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.45em;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.3em;
+        }
+
+        .qr-placeholder {
+            width: 220px;
+            height: 220px;
+            background: white;
+            border-radius: 16px;
+            margin: 0.8em auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a2e;
+            font-size: 0.5em;
+            font-weight: 600;
+        }
+
+        .stufenmodell-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            padding: 0.45em 0.8em;
+            margin-bottom: 0.4em;
+            background: var(--bg-card);
+            border-radius: 10px;
+            font-size: 0.65em;
+            border-left: 3px solid;
+        }
+
+        .stufenmodell-age {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            min-width: 3em;
+            flex-shrink: 0;
+        }
+
+        .survey-question {
+            font-size: 0.8em;
+            padding: 0.6em 1em;
+            margin: 0.5em 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border-left: 3px solid var(--amber);
+            text-align: left;
+        }
+
+        .handyfrei-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            font-size: 0.75em;
+            margin-bottom: 0.4em;
+        }
+
+        .handyfrei-check {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.35em;
+            color: var(--text-muted);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .reveal h1 { font-size: 2em; }
+            .reveal h2 { font-size: 1.4em; }
+            .big-number { font-size: 3em; }
+            .card-grid-2, .card-grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .app-table { font-size: 0.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ============================================ -->
+            <!-- PHASE 1: Ankommen & Eisbrecher (10 Min)      -->
+            <!-- ============================================ -->
+
+            <!-- Folie 1 - Titelfolie -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%)">
+                <div style="margin-top: -0.5em;">
+                    <p style="font-size: 0.5em; color: var(--amber); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5em;">Elternabend</p>
+                    <h1 style="margin-bottom: 0.1em;">Das erste<br>Smartphone</h1>
+                    <p style="font-size: 0.8em; color: var(--text-secondary); margin-bottom: 1.5em;">Was Eltern wissen müssen</p>
+                    <div class="divider"></div>
+                    <p style="font-size: 0.45em; color: var(--text-muted); margin-top: 1em;">
+                        Daniel Gaiswinkler&ensp;|&ensp;Das Projekt e.V. + Eschenburgschule<br>
+                        <span style="color: var(--text-muted);">[Datum eintragen]</span>
+                    </p>
+                </div>
+                <aside class="notes">
+                    Willkommen, locker ankommen lassen. Leute begrüßen, kurz warten bis alle sitzen. Freundliche, warme Atmosphäre schaffen. "Schön, dass ihr euch die Zeit nehmt – das zeigt schon, dass euch das Thema wichtig ist."
+                </aside>
+            </section>
+
+            <!-- Folie 2 - Persönliche Vorstellung -->
+            <section>
+                <p class="phase-badge">Ankommen</p>
+                <h2>Ich bin auch nur ein Vater.</h2>
+                <div class="divider" style="margin-bottom: 1em;"></div>
+                <p style="font-size: 0.7em; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                    Ich stehe vor denselben Fragen wie ihr.<br>
+                    Kein erhobener Zeigefinger. Kein Experten-Gestus.<br>
+                    <span class="accent-amber">Einfach ein Vater, der sich informiert hat.</span>
+                </p>
+                <aside class="notes">
+                    Persönlich erzählen: Tochter in der 4. Klasse, beruflich als KI-Berater unterwegs, aber heute Abend stehe ich hier als Vater. "Ich habe dieselben Unsicherheiten wie ihr. Ich habe mich einfach intensiv in die Studien eingelesen – und teile heute, was ich gefunden habe."
+                </aside>
+            </section>
+
+            <!-- Folie 3 - Live-Umfrage -->
+            <section>
+                <p class="phase-badge">Eisbrecher</p>
+                <h2>Kurze Umfrage</h2>
+                <p style="font-size: 0.55em; color: var(--text-muted); margin-bottom: 0.8em;">Hand hoch, ehrlich sein!</p>
+                <div class="survey-question">
+                    Wer hat ein Kind, das <strong class="accent-amber">schon</strong> ein Smartphone hat?
+                </div>
+                <div class="survey-question">
+                    Wer hat ein Kind, das sich <strong class="accent-teal">dringend</strong> eins wünscht?
+                </div>
+                <div class="survey-question">
+                    Wer hat <strong class="accent-green">selbst</strong> mehr als 2 Stunden Bildschirmzeit am Tag? <span style="font-size: 0.8em;">&#128064;</span>
+                </div>
+                <aside class="notes">
+                    Humor einsetzen, lockere Atmosphäre schaffen. Bei der letzten Frage lachen – "Okay, ich fange an: Meine Hand geht hoch." Das bricht das Eis und zeigt: Wir sind alle im selben Boot. Kurz Hände zählen, Stimmungsbild kommentieren.
+                </aside>
+            </section>
+
+            <!-- Folie 4 - Die unbequeme Wahrheit -->
+            <section>
+                <p class="phase-badge">Realitätscheck</p>
+                <div class="big-number accent-amber">90%</div>
+                <p style="font-size: 0.7em; max-width: 700px; margin: 0 auto; line-height: 1.5;">
+                    von uns Eltern schauen mindestens <strong>einmal pro Stunde</strong> aufs Handy, wenn wir mit unseren Kindern zusammen sind.
+                </p>
+                <p style="font-size: 0.5em; color: var(--text-muted); margin-top: 1em;">
+                    Phubbing = <span class="accent-amber">Ph</span>one + Sn<span class="accent-amber">ubbing</span>
+                </p>
+                <aside class="notes">
+                    "Das ist kein Vorwurf. Das ist einfach die Realität, über die wir reden müssen." Kurze Pause wirken lassen. "Wir alle kennen das: Das Kind erzählt was, und wir schauen kurz aufs Handy. 'Nur eine Sekunde.' Aber unsere Kinder merken das. Und sie lernen von uns."
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 2: Die Realität (25 Min)               -->
+            <!-- ============================================ -->
+
+            <!-- Folie 5 - Diskussionsfrage -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #162032 100%)">
+                <p class="phase-badge">Die Realität</p>
+                <h2 style="font-size: 1.6em; max-width: 750px; margin: 0 auto;">Was glaubt ihr, was eure Kinder auf dem Smartphone machen?</h2>
+                <div class="divider" style="margin-top: 1em;"></div>
+                <p style="font-size: 0.5em; color: var(--text-muted); margin-top: 1em;">2-3 Minuten offene Runde</p>
+                <aside class="notes">
+                    2-3 Minuten Raum geben, Antworten sammeln. Leute einfach reinrufen lassen: "YouTube!", "Spielen!", "TikTok!" – alles kurz bestätigen. Dann überleiten: "Schauen wir mal, was die Studien sagen..."
+                </aside>
+            </section>
+
+            <!-- Folie 6 - Die Zahlen -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2>Die Zahlen</h2>
+                <div class="card-grid card-grid-3" style="margin-top: 0.8em;">
+                    <div class="stat-card">
+                        <div class="stat-number accent-amber">63%</div>
+                        <div class="stat-label">der 10-11-Jährigen<br>haben ein Smartphone</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number accent-teal">105 Min</div>
+                        <div class="stat-label">Gaming pro Tag<br>(Werktage)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number accent-green">157 Min</div>
+                        <div class="stat-label">Social Media pro Tag<br>(Werktage)</div>
+                    </div>
+                </div>
+                <p class="text-xs" style="margin-top: 1em;">Quelle: KIM-Studie 2024, mpfs</p>
+                <aside class="notes">
+                    KIM-Studie 2024 vom Medienpädagogischen Forschungsverbund Südwest. "105 Minuten Gaming plus 157 Minuten Social Media – das sind über 4 Stunden am Tag. An Schultagen. Dazu kommen noch Messenger, YouTube und Co." Zahlen wirken lassen.
+                </aside>
+            </section>
+
+            <!-- Folie 7 - Die beliebtesten Apps -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2 style="font-size: 1.4em;">Die beliebtesten Apps eurer Kinder</h2>
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>App</th>
+                            <th>Alter</th>
+                            <th>Realität</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WhatsApp</strong></td>
+                            <td><span class="badge badge-red">ab 16</span></td>
+                            <td>50%+ der 6-13-Jährigen nutzen es</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok</strong></td>
+                            <td><span class="badge badge-red">ab 13</span></td>
+                            <td>38 Stunden/Monat Nutzungsdauer</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Roblox</strong></td>
+                            <td><span class="badge badge-red">USK 16!</span></td>
+                            <td>40% der Nutzer unter 13</td>
+                        </tr>
+                        <tr>
+                            <td><strong>YouTube</strong></td>
+                            <td><span class="badge badge-amber">ab 13</span></td>
+                            <td>85% der Inhalte enthalten Werbung</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fortnite</strong></td>
+                            <td><span class="badge badge-amber">ab 12</span></td>
+                            <td>Skins kosten bis zu 20 Euro</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brawl Stars</strong></td>
+                            <td><span class="badge badge-red">ab 9*</span></td>
+                            <td>Stiftung Warentest: "inakzeptabel"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    "Die Altersfreigaben sind nicht nur Empfehlungen – sie basieren auf echten Risiken." Roblox hat USK 16 bekommen wegen unkontrollierter Chat-Funktionen und User-Generated Content. Brawl Stars wurde von Stiftung Warentest als "inakzeptabel" eingestuft wegen aggressiver In-App-Käufe. "Kennt jemand von euch alle diese Apps? Habt ihr sie selbst mal ausprobiert?"
+                </aside>
+            </section>
+
+            <!-- Folie 8 - Cybergrooming -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2>Cybergrooming</h2>
+                <div class="card-grid card-grid-3" style="margin-top: 0.8em;">
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div class="stat-number accent-red">25%</div>
+                        <div class="stat-label">der 8-17-Jährigen<br>sind betroffen</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
+                        <div class="stat-number accent-amber">3.457</div>
+                        <div class="stat-label">Fälle PKS 2024<br>(+34% zum Vorjahr)</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                        <div class="stat-number accent-teal">4%</div>
+                        <div class="stat-label">sprechen danach<br>mit ihren Eltern</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.55em; color: var(--text-secondary); margin-top: 1em; max-width: 650px; margin-left: auto; margin-right: auto;">
+                    Erwachsene erschleichen sich das Vertrauen von Kindern, um sexuelle Kontakte anzubahnen.
+                </p>
+                <aside class="notes">
+                    "Das ist die Zahl, die mich als Vater am meisten erschreckt hat: Nur 4% sprechen mit ihren Eltern." Cybergrooming passiert in Gaming-Chats, auf TikTok, in WhatsApp-Gruppen. Die Täter sind geschult und geduldig. Sie bauen wochenlang Vertrauen auf. PKS = Polizeiliche Kriminalstatistik. Die Dunkelziffer ist enorm hoch.
+                </aside>
+            </section>
+
+            <!-- Folie 9 - Sexting & Recht -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2>Sexting &amp; Recht</h2>
+                <div class="stat-card" style="max-width: 600px; margin: 0.8em auto; border-top: 3px solid var(--red);">
+                    <div class="stat-number accent-red" style="font-size: 2em;">25%</div>
+                    <div class="stat-label" style="font-size: 0.65em;">der 11-17-Jährigen erhielten eine Sexting-Nachricht</div>
+                </div>
+                <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--red);">
+                    <p style="font-size: 0.65em; margin: 0; line-height: 1.5;">
+                        <strong class="accent-red">§184b StGB:</strong> Ein weitergeleitetes Bild kann zur<br>
+                        <strong>Hausdurchsuchung</strong> führen &ndash; auch bei unter 14-Jährigen.
+                    </p>
+                </div>
+                <aside class="notes">
+                    "Viele Eltern wissen das nicht. Ein einziger Klick kann eine Kaskade auslösen." Beispiel: Kind bekommt ein Nacktbild im Klassenchat. Leitet es weiter – auch aus Schock oder "Schau mal" – und macht sich damit strafbar. Die Polizei beschlagnahmt dann ALLE Geräte im Haushalt. Das passiert aktuell hundertfach in Deutschland. Kinder unter 14 sind strafunmündig, aber die Polizei kommt trotzdem.
+                </aside>
+            </section>
+
+            <!-- Folie 10 - Pornografie -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2>Pornografie</h2>
+                <div class="card-grid card-grid-2" style="max-width: 700px; margin: 0.8em auto;">
+                    <div class="stat-card">
+                        <div class="stat-number accent-amber" style="font-size: 2em;">42%</div>
+                        <div class="stat-label">der 11-17-Jährigen haben<br>bereits Pornos gesehen</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number accent-teal" style="font-size: 2em;">12,7</div>
+                        <div class="stat-label">Jahre &ndash; durchschnittliches Alter<br>beim Erstkontakt</div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 700px; margin: 0.8em auto;">
+                    <p style="font-size: 0.6em; margin: 0; text-align: center;">
+                        <strong class="accent-red">60% der Mädchen:</strong> ungewollter Kontakt&emsp;&bull;&emsp;
+                        <strong class="accent-amber">Nur 4%</strong> sprechen danach mit Eltern
+                    </p>
+                </div>
+                <aside class="notes">
+                    Sensibel behandeln, keine Panikmache. "Das ist ein Thema, über das wir ungern reden. Aber unsere Kinder begegnen diesen Inhalten – ob wir wollen oder nicht." 60% der Mädchen sehen es ungewollt – das ist kein aktives Suchen, das wird ihnen zugeschickt. Und wieder: Nur 4% sprechen mit Eltern. Das zeigt, wie wichtig eine offene Gesprächskultur ist.
+                </aside>
+            </section>
+
+            <!-- Folie 11 - Kostenfallen -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2>Kostenfallen</h2>
+                <div class="big-number accent-amber" style="font-size: 3em;">33.000 Euro</div>
+                <p style="font-size: 0.65em; color: var(--text-secondary);">
+                    In-App-Käufe eines 7-Jährigen.<br>
+                    Über 20 Monate. Dokumentierter Fall.
+                </p>
+                <div class="card-grid card-grid-2" style="max-width: 650px; margin: 1em auto 0;">
+                    <div class="card" style="text-align: center;">
+                        <p style="font-size: 0.6em; margin: 0;">
+                            <strong class="accent-red">Lootboxen</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">= Glücksspiel für Kinder</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <p style="font-size: 0.6em; margin: 0;">
+                            <strong class="accent-red">Dark Patterns</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">= Design, das Kinder in Käufe lockt</span>
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Konkretes Beispiel erzählen: Ein 7-Jähriger hat in einem Handyspiel über 20 Monate lang immer wieder kleine Beträge ausgegeben. Die Eltern haben es erst gemerkt, als die Kreditkartenabrechnung nicht mehr stimmte. 33.000 Euro. Lootboxen funktionieren wie einarmige Banditen: Man zahlt Geld und bekommt zufällige Belohnungen. Dark Patterns: z.B. der "Kaufen"-Button ist groß und bunt, der "Nein danke"-Button winzig und grau.
+                </aside>
+            </section>
+
+            <!-- Folie 12 - Sucht -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2>Mediensucht</h2>
+                <div class="card" style="max-width: 700px; margin: 0.5em auto; border-left: 3px solid var(--amber);">
+                    <p style="font-size: 0.75em; margin: 0; font-style: italic;">
+                        "Ein Tsunami rollt auf uns zu."
+                    </p>
+                    <p style="font-size: 0.45em; color: var(--text-muted); margin: 0.3em 0 0;">
+                        &ndash; Prof. Rainer Thomasius, UKE Hamburg
+                    </p>
+                </div>
+                <div class="card-grid card-grid-3" style="max-width: 750px; margin: 0.8em auto;">
+                    <div class="stat-card">
+                        <div class="stat-number accent-amber" style="font-size: 1.8em;">25%</div>
+                        <div class="stat-label">problematische<br>Nutzung (1,3 Mio.)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number accent-red" style="font-size: 1.8em;">4,7%</div>
+                        <div class="stat-label">pathologisch<br>abhängig (+126%)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number accent-teal" style="font-size: 1.8em;">ICD-11</div>
+                        <div class="stat-label">Gaming Disorder<br>offiziell seit 2022</div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    DAK-Studie zitieren. Prof. Rainer Thomasius leitet das Deutsche Zentrum für Suchtfragen des Kindes- und Jugendalters am UKE Hamburg. 1,3 Millionen Kinder in Deutschland zeigen problematisches Nutzungsverhalten. 4,7% sind pathologisch abhängig – das sind fast 250.000 Kinder. Anstieg um 126% seit 2019 (auch Corona-Effekt). Die WHO hat Gaming Disorder 2022 in den ICD-11 aufgenommen – das ist die offizielle Anerkennung als Krankheit.
+                </aside>
+            </section>
+
+            <!-- Folie 13 - Atempause -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #162032 100%)">
+                <h2 style="font-size: 1.5em; color: var(--text-secondary);">Ja, das sind harte Zahlen.</h2>
+                <div class="divider" style="margin: 1em auto;"></div>
+                <p class="big-quote" style="font-size: 1.2em;">
+                    Aber: <span class="accent-amber">Panik hilft nicht.</span><br>
+                    <span class="accent-green">Wissen schon.</span>
+                </p>
+                <p style="font-size: 0.55em; color: var(--text-muted); margin-top: 1.5em;">Was können wir also tun?</p>
+                <aside class="notes">
+                    Kurze Pause, Raum für Reaktionen. "Ich sehe, dass einige von euch schlucken. Das ist normal. Mir ging es genauso, als ich diese Zahlen zum ersten Mal gelesen habe." 5 Sekunden Stille lassen. "Die gute Nachricht: Es gibt eine Menge, was wir tun können. Und darum geht es jetzt."
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 3: Praktische Werkzeuge (25 Min)       -->
+            <!-- ============================================ -->
+
+            <!-- Folie 14 - Datenschutz-Ampel -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2>Die Datenschutz-Ampel</h2>
+                <p style="font-size: 0.55em; color: var(--text-secondary); margin-bottom: 0.6em;">Eine einfache Regel, die auch Kinder verstehen</p>
+                <div style="max-width: 650px; margin: 0 auto;">
+                    <div class="ampel-item ampel-gruen">
+                        <div class="ampel-dot" style="background: var(--green);">&#9679;</div>
+                        <div>
+                            <strong>GRÜN</strong> &ndash; Öffentliche Inhalte, Lern-Apps &rarr; Go!
+                        </div>
+                    </div>
+                    <div class="ampel-item ampel-gelb">
+                        <div class="ampel-dot" style="background: var(--yellow);">&#9679;</div>
+                        <div>
+                            <strong>GELB</strong> &ndash; Klassenchat, Social Media &rarr; Mit Begleitung
+                        </div>
+                    </div>
+                    <div class="ampel-item ampel-rot">
+                        <div class="ampel-dot" style="background: var(--red);">&#9679;</div>
+                        <div>
+                            <strong>ROT</strong> &ndash; Persönliche Daten, Fotos von anderen &rarr; STOP
+                        </div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    "Eine einfache Regel, die auch Kinder verstehen." Die Ampel könnt ihr auch als Poster ausdrucken und neben den Computer hängen. Grün = alles easy, da braucht man nicht zu fragen. Gelb = grundsätzlich okay, aber nur mit einem Erwachsenen in der Nähe oder nach Absprache. Rot = absolutes No-Go, hier gilt: vorher fragen, immer.
+                </aside>
+            </section>
+
+            <!-- Folie 15 - Technische Kindersicherung -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.4em;">Technische Kindersicherung</h2>
+                <div style="max-width: 650px; margin: 0.8em auto;">
+                    <div class="card" style="border-left: 3px solid var(--text-secondary); margin-bottom: 0.5em;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong>Apple</strong> &ndash; Bildschirmzeit<br>
+                            <span class="text-muted" style="font-size: 0.85em;">Kostenlos, in jedem iPhone eingebaut</span>
+                        </p>
+                    </div>
+                    <div class="card" style="border-left: 3px solid var(--green); margin-bottom: 0.5em;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong>Android</strong> &ndash; Family Link + JusProg<br>
+                            <span class="text-muted" style="font-size: 0.85em;">Kostenlose Kombi, von der EU empfohlen</span>
+                        </p>
+                    </div>
+                    <div class="card" style="border-left: 3px solid var(--amber); margin-bottom: 0.5em;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong>Premium</strong> &ndash; Salfeld Kindersicherung<br>
+                            <span class="text-muted" style="font-size: 0.85em;">Testsieger (Note 2,0), plattformübergreifend</span>
+                        </p>
+                    </div>
+                </div>
+                <p style="font-size: 0.5em; color: var(--text-muted);">Keine App ersetzt euch als Eltern. Aber sie helfen.</p>
+                <aside class="notes">
+                    "Keine App ersetzt euch als Eltern. Aber sie helfen." Apple Bildschirmzeit: Unter Einstellungen → Bildschirmzeit. Kann App-Limits, Kommunikationslimits und Inhaltsbeschränkungen setzen. Android Family Link: Googles kostenlose Lösung. JusProg dazu als Webfilter – zusammen eine starke Kombi. Salfeld: Testsieger bei Stiftung Warentest, funktioniert auf Windows, Android und iOS. Kostet ca. 20€/Jahr.
+                </aside>
+            </section>
+
+            <!-- Folie 16 - Mediennutzungsvertrag -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.4em;">Der Mediennutzungsvertrag</h2>
+                <div class="card" style="max-width: 600px; margin: 0.8em auto; border: 2px solid var(--amber); text-align: center;">
+                    <p style="font-size: 0.9em; margin: 0 0 0.3em; font-weight: 700; color: var(--amber);">
+                        mediennutzungsvertrag.de
+                    </p>
+                    <p style="font-size: 0.55em; color: var(--text-secondary); margin: 0;">
+                        Klicksafe + Internet-ABC
+                    </p>
+                </div>
+                <div style="max-width: 600px; margin: 0.8em auto; text-align: left;">
+                    <p style="font-size: 0.65em; margin: 0.4em 0;">
+                        &#10003;&ensp;Gemeinsam mit dem Kind erstellen
+                    </p>
+                    <p style="font-size: 0.65em; margin: 0.4em 0;">
+                        &#10003;&ensp;Beide Seiten unterschreiben
+                    </p>
+                    <p style="font-size: 0.65em; margin: 0.4em 0; color: var(--amber);">
+                        &#10003;&ensp;<strong>Auch Elternregeln!</strong> (z.B. kein Handy beim Essen)
+                    </p>
+                </div>
+                <aside class="notes">
+                    "Wenn ihr heute EINE Sache mitnehmt, dann diese Website." mediennutzungsvertrag.de ist ein gemeinsames Projekt von Klicksafe und Internet-ABC. Man klickt sich durch verschiedene Bereiche und erstellt zusammen mit dem Kind einen individualisierten Vertrag. Das Wichtige: BEIDE Seiten haben Regeln. Das Kind hält sich an Bildschirmzeiten, und die Eltern halten sich daran, nicht beim Abendessen aufs Handy zu schauen. Das schafft Fairness und Akzeptanz.
+                </aside>
+            </section>
+
+            <!-- Folie 17 - Bildschirmzeit -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.4em;">Bildschirmzeit &ndash; Richtwerte</h2>
+                <div class="card-grid card-grid-2" style="max-width: 700px; margin: 0.8em auto;">
+                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                        <div class="stat-number accent-teal" style="font-size: 1.6em;">Max 1h</div>
+                        <div class="stat-label">pro Tag oder 7h/Woche<br>(BZgA-Empfehlung)</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--green);">
+                        <div class="stat-number accent-green" style="font-size: 1.6em;">45-60 Min</div>
+                        <div class="stat-label">pro Tag<br>(Kinderärzte-Empfehlung)</div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 700px; margin: 0.8em auto; text-align: center;">
+                    <p style="font-size: 0.6em; margin: 0;">
+                        Faustregel: <strong class="accent-amber">Alter in Jahren = Wochenstunden</strong><br>
+                        <span class="text-muted" style="font-size: 0.85em;">Realität: 4+ Stunden pro Tag</span>
+                    </p>
+                </div>
+                <aside class="notes">
+                    "Das sind Richtwerte, keine Gesetze. Jedes Kind ist anders." BZgA = Bundeszentrale für gesundheitliche Aufklärung. Die Faustregel ist gut merkbar: 10 Jahre = 10 Stunden pro Woche. Die Realität liegt bei über 4 Stunden pro Tag – also fast 30 Stunden pro Woche. Das ist ein gewaltiger Gap. Tipp: Nicht von heute auf morgen auf 1 Stunde runter – schrittweise reduzieren.
+                </aside>
+            </section>
+
+            <!-- Folie 18 - Handyfreie Zonen -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.4em;">Handyfreie Zonen</h2>
+                <div style="max-width: 550px; margin: 0.8em auto;">
+                    <div class="handyfrei-item">
+                        <span class="handyfrei-check">&#10003;</span>
+                        <span>Esstisch</span>
+                    </div>
+                    <div class="handyfrei-item">
+                        <span class="handyfrei-check">&#10003;</span>
+                        <span>Schlafzimmer <span class="accent-amber" style="font-size: 0.8em;">(+40 Min Schlaf!)</span></span>
+                    </div>
+                    <div class="handyfrei-item">
+                        <span class="handyfrei-check">&#10003;</span>
+                        <span>Hausaufgaben</span>
+                    </div>
+                    <div class="handyfrei-item">
+                        <span class="handyfrei-check">&#10003;</span>
+                        <span>1-2 Stunden vor dem Schlafen</span>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 550px; margin: 1em auto; border: 2px solid var(--amber); text-align: center;">
+                    <p style="font-size: 0.7em; margin: 0;">
+                        Die <strong class="accent-amber">"Handygarage"</strong><br>
+                        <span style="font-size: 0.8em; color: var(--text-secondary);">Ein Korb im Flur &ndash; für ALLE Familienmitglieder</span>
+                    </p>
+                </div>
+                <aside class="notes">
+                    Schweizer Studie: Kinder, die das Handy nicht im Schlafzimmer haben, schlafen durchschnittlich 40 Minuten mehr pro Nacht. Das ist enorm! Die "Handygarage" funktioniert, weil sie für ALLE gilt. Mama und Papa legen ihr Handy auch rein. Das signalisiert: Wir sind hier zusammen, ohne Ablenkung. Praktischer Tipp: Einen schönen Korb kaufen, zentral im Flur aufstellen, Ladekabel reinlegen.
+                </aside>
+            </section>
+
+            <!-- Folie 19 - Stufenmodell -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.3em;">Stufenmodell: Schritt für Schritt</h2>
+                <div style="max-width: 680px; margin: 0.6em auto;">
+                    <div class="stufenmodell-row" style="border-color: var(--green);">
+                        <span class="stufenmodell-age accent-green">6-8</span>
+                        <span>Tastenhandy oder Smartwatch (z.B. Xplora X6 Play)</span>
+                    </div>
+                    <div class="stufenmodell-row" style="border-color: var(--teal);">
+                        <span class="stufenmodell-age accent-teal">8-10</span>
+                        <span>EinfachFon Kids (~199 Euro) &ndash; reduziertes Smartphone</span>
+                    </div>
+                    <div class="stufenmodell-row" style="border-color: var(--amber);">
+                        <span class="stufenmodell-age accent-amber">10-12</span>
+                        <span>Smartphone mit Kindersicherung (Family Link / Bildschirmzeit)</span>
+                    </div>
+                    <div class="stufenmodell-row" style="border-color: var(--amber-dark);">
+                        <span class="stufenmodell-age" style="color: var(--amber-dark);">ab 12</span>
+                        <span>Eingeschränktes Internet, erste Apps mit Absprache</span>
+                    </div>
+                    <div class="stufenmodell-row" style="border-color: var(--red);">
+                        <span class="stufenmodell-age accent-red">ab 14</span>
+                        <span>Volles Smartphone &ndash; mit Begleitung und Vertrag</span>
+                    </div>
+                </div>
+                <p class="text-xs" style="margin-top: 0.6em;">Xplora X6 Play ~150-199 Euro | EinfachFon Kids ~199 Euro</p>
+                <aside class="notes">
+                    Geräte-Empfehlungen: Die Xplora X6 Play ist eine GPS-Smartwatch mit Telefonfunktion – perfekt für Grundschüler, die erreichbar sein sollen. Kein Internet, keine Apps, aber Anrufe und Nachrichten. EinfachFon Kids: Ein echtes Smartphone, aber mit stark vereinfachter Oberfläche. Eltern bestimmen, welche Apps drauf sind. Ab 10-12 kann man über ein normales Smartphone nachdenken – aber mit Kindersicherung. "Es muss nicht das neueste iPhone sein. Ein gebrauchtes Gerät tut es auch."
+                </aside>
+            </section>
+
+            <!-- Folie 20 - Positive Nutzung -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.4em;">Es ist nicht alles schlecht!</h2>
+                <p style="font-size: 0.55em; color: var(--text-secondary); margin-bottom: 0.6em;">Kreative statt passive Nutzung fördern</p>
+                <div class="card-grid card-grid-2" style="max-width: 700px; margin: 0 auto;">
+                    <div class="card" style="text-align: center;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong class="accent-green">ANTON</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">Beste Lern-App, kostenlos, werbefrei</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong class="accent-teal">Scratch</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">Programmieren lernen (MIT)</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong class="accent-amber">Stop Motion Studio</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">Filme drehen mit Lego & Co.</span>
+                        </p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <p style="font-size: 0.65em; margin: 0;">
+                            <strong class="accent-green">Internet-ABC Surfschein</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">Spielerisch sicher surfen lernen</span>
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Kreative statt passive Nutzung fördern. ANTON ist die beste Lern-App für Grundschüler und wird von vielen Schulen empfohlen. Komplett kostenlos und werbefrei. Scratch: Vom MIT entwickelt, Kinder lernen spielerisch Programmieren mit visuellen Blöcken. Kostenlos unter scratch.mit.edu. Stop-Motion-Filme: Kinder bauen Lego-Szenen, fotografieren sie Bild für Bild und erstellen einen Film. Das ist kreativ und macht Riesenspaß. Internet-ABC Surfschein: Ein spielerischer Online-Kurs, der Kindern beibringt, sich sicher im Internet zu bewegen.
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 4: Eltern als Vorbilder (15 Min)       -->
+            <!-- ============================================ -->
+
+            <!-- Folie 21 - Bevor wir über unsere Kinder reden... -->
+            <section>
+                <p class="phase-badge">Eltern als Vorbilder</p>
+                <h2 style="font-size: 1.3em;">Bevor wir über unsere Kinder reden...</h2>
+                <div class="card-grid card-grid-3" style="margin-top: 0.8em;">
+                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
+                        <div class="stat-number accent-amber" style="font-size: 1.6em;">3,4h</div>
+                        <div class="stat-label">eigene Smartphone-<br>Nutzung pro Tag</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div class="stat-number accent-red" style="font-size: 1.6em;">55%</div>
+                        <div class="stat-label">ergreifen KEINE<br>Schutzmaßnahmen</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                        <div class="stat-number accent-teal" style="font-size: 1.6em;">34%</div>
+                        <div class="stat-label">reden regelmäßig über<br>Online-Erfahrungen</div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Spiegel vorhalten, aber empathisch. "Bevor wir über unsere Kinder reden, müssen wir kurz über uns reden." 2,6 bis 3,4 Stunden pro Tag – je nach Studie. Das ist die Altersgruppe 30-49 Jahre, also wir. 55% der Eltern haben KEINE Kindersicherung installiert und KEINE Regeln aufgestellt. Und nur 34% reden regelmäßig mit ihren Kindern über das, was sie online erleben. "Das können wir ändern. Ab heute."
+                </aside>
+            </section>
+
+            <!-- Folie 22 - Phubbing -->
+            <section>
+                <p class="phase-badge">Eltern als Vorbilder</p>
+                <h2>Phubbing</h2>
+                <p style="font-size: 0.6em; color: var(--text-secondary);">
+                    <span class="accent-amber">Ph</span>one + Sn<span class="accent-amber">ubbing</span> = das Gegenüber zugunsten des Handys ignorieren
+                </p>
+                <div class="card-grid card-grid-2" style="max-width: 600px; margin: 0.8em auto;">
+                    <div class="stat-card">
+                        <div class="stat-number accent-amber" style="font-size: 1.8em;">90%</div>
+                        <div class="stat-label">Wahrscheinlichkeit<br>innerhalb 1 Stunde</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number accent-red" style="font-size: 1.8em;">35%</div>
+                        <div class="stat-label">der Kinder fühlen<br>sich ignoriert</div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 600px; margin: 0.8em auto; text-align: center;">
+                    <p style="font-size: 0.55em; margin: 0; line-height: 1.6;">
+                        Kind will erzählen &rarr; Eltern schauen aufs Handy &rarr;<br>
+                        Kind fühlt sich unwichtig &rarr; Kind zieht sich zurück &rarr;<br>
+                        <span class="accent-red">Kind sucht Aufmerksamkeit im Handy</span>
+                    </p>
+                </div>
+                <aside class="notes">
+                    "Ich erwische mich selbst dabei." Der Teufelskreis: Kind will etwas erzählen → Mama/Papa schaut aufs Handy → "Ja, gleich" → Kind fühlt sich unwichtig → Kind lernt: Das Handy ist wichtiger als ich → Kind zieht sich zurück → Kind sucht sich die Aufmerksamkeit, die es braucht, woanders: im eigenen Handy. "Wenn wir wollen, dass unsere Kinder mit uns reden – müssen wir das Handy weglegen, wenn sie es tun."
+                </aside>
+            </section>
+
+            <!-- Folie 23 - 5 Sofort-Tipps -->
+            <section>
+                <p class="phase-badge">Eltern als Vorbilder</p>
+                <h2 style="font-size: 1.3em;">5 Dinge, die ihr HEUTE noch tun könnt</h2>
+                <div style="max-width: 600px; margin: 0.8em auto;">
+                    <ul class="tip-list">
+                        <li>
+                            <span class="tip-icon">1</span>
+                            <span><strong>Push-Benachrichtigungen aus</strong> &ndash; bis auf Anrufe und SMS</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">2</span>
+                            <span><strong>Handygarage einrichten</strong> &ndash; Korb im Flur für alle</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">3</span>
+                            <span><strong>Smartphone aus dem Schlafzimmer</strong> &ndash; Wecker kaufen!</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">4</span>
+                            <span><strong>Graustufen-Modus</strong> &ndash; macht das Handy langweilig</span>
+                        </li>
+                        <li>
+                            <span class="tip-icon">5</span>
+                            <span><strong>Social-Media-Apps vom Homescreen</strong> &ndash; in Ordner verstecken</span>
+                        </li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    Konkret und sofort umsetzbar: 1) Push aus: Jede Benachrichtigung ist eine Unterbrechung. Das Handy soll uns dienen, nicht umgekehrt. 2) Handygarage: Schöner Korb, Ladekabel rein, alle legen beim Reinkommen ihr Handy ab. 3) Schlafzimmer: Das blaue Licht stört den Schlaf. Einen Wecker für 5 Euro kaufen. 4) Graustufen: Unter Bedienungshilfen aktivieren – das Handy wird sofort viel weniger attraktiv, weil die bunten Farben fehlen. 5) Apps verstecken: Was man nicht sofort sieht, nutzt man weniger.
+                </aside>
+            </section>
+
+            <!-- Folie 24 - Kernbotschaft -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #162032 100%)">
+                <div style="max-width: 750px; margin: 0 auto;">
+                    <p class="big-quote" style="color: var(--amber);">
+                        Wer Regeln aufstellt,<br>muss sie vorleben.
+                    </p>
+                </div>
+                <aside class="notes">
+                    Wirken lassen. 5 Sekunden Stille. "Das ist die wichtigste Folie des Abends. Wenn wir von unseren Kindern verlangen, das Handy beim Essen wegzulegen – dann müssen wir das auch tun. Kinder lernen nicht durch das, was wir sagen. Sie lernen durch das, was wir tun."
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 5: Zusammenfassung & Ressourcen (15 Min) -->
+            <!-- ============================================ -->
+
+            <!-- Folie 25 - Die 3 Leitprinzipien -->
+            <section>
+                <p class="phase-badge">Zusammenfassung</p>
+                <h2 style="font-size: 1.4em;">Die 3 Leitprinzipien</h2>
+                <div class="card-grid card-grid-3" style="margin-top: 0.8em;">
+                    <div class="principle-card" style="border-top-color: var(--green);">
+                        <p style="font-size: 1.8em; margin: 0 0 0.2em;">1</p>
+                        <h3 class="accent-green">BEGLEITEN</h3>
+                        <p>Interesse zeigen, mitspielen, fragen</p>
+                    </div>
+                    <div class="principle-card" style="border-top-color: var(--teal);">
+                        <p style="font-size: 1.8em; margin: 0 0 0.2em;">2</p>
+                        <h3 class="accent-teal">BEFÄHIGEN</h3>
+                        <p>Medienkompetenz aufbauen, nicht nur verbieten</p>
+                    </div>
+                    <div class="principle-card" style="border-top-color: var(--amber);">
+                        <p style="font-size: 1.8em; margin: 0 0 0.2em;">3</p>
+                        <h3 class="accent-amber">BEGRENZEN</h3>
+                        <p>Klare Regeln, technischer Schutz, Konsequenzen</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.5em; color: var(--text-muted); margin-top: 1em;">In dieser Reihenfolge!</p>
+                <aside class="notes">
+                    "In dieser Reihenfolge!" Zuerst begleiten: Interesse zeigen an dem, was das Kind online macht. Mitspielen, Fragen stellen: "Zeig mir mal, was du da gerade spielst." Dann befähigen: Medienkompetenz aufbauen. Nicht einfach verbieten, sondern erklären warum. Kinder, die verstehen WARUM etwas gefährlich ist, halten sich eher an Regeln. Dann begrenzen: Klare Regeln, technische Sicherung, aber auch Konsequenzen, wenn Regeln gebrochen werden. "Beziehung vor Erziehung – das gilt auch digital."
+                </aside>
+            </section>
+
+            <!-- Folie 26 - 5 Rechtsfallen -->
+            <section>
+                <p class="phase-badge">Zusammenfassung</p>
+                <h2 style="font-size: 1.3em;">5 Rechtsfallen, die Eltern kennen müssen</h2>
+                <div style="max-width: 700px; margin: 0.6em auto;">
+                    <ol class="step-list">
+                        <li>
+                            <span><strong class="accent-red">Kinderpornografie im Klassenchat</strong> &ndash; Hausdurchsuchung, auch bei unter 14-Jährigen</span>
+                        </li>
+                        <li>
+                            <span><strong class="accent-amber">Kinderfotos ohne Einwilligung</strong> &ndash; rechtswidrig (DSGVO + KunstUrhG)</span>
+                        </li>
+                        <li>
+                            <span><strong class="accent-amber">In-App-Käufe</strong> &ndash; Elternhaftung bis 33.000 Euro+</span>
+                        </li>
+                        <li>
+                            <span><strong class="accent-amber">Filesharing</strong> &ndash; Störerhaftung für den Anschlussinhaber</span>
+                        </li>
+                        <li>
+                            <span><strong class="accent-teal">WhatsApp unter 16</strong> &ndash; erfordert Einwilligung der Erziehungsberechtigten</span>
+                        </li>
+                    </ol>
+                </div>
+                <aside class="notes">
+                    Kurz zusammenfassen: 1) Ein weitergeleitetes Nacktbild reicht für eine Hausdurchsuchung – auch wenn das Kind unter 14 ist. 2) Fotos von anderen Kindern ohne Einwilligung der Eltern posten ist rechtswidrig. 3) In-App-Käufe: Eltern haften, auch wenn das Kind sie getätigt hat. Apple/Google erstatten nur in Ausnahmefällen. 4) Filesharing über den Familienanschluss: Der Anschlussinhaber haftet. 5) WhatsApp hat das Mindestalter auf 16 angehoben (DSGVO). Unter 16 braucht es die Einwilligung der Eltern. "Das soll keine Angst machen – aber ihr solltet es wissen."
+                </aside>
+            </section>
+
+            <!-- Folie 27 - 7-Tage-Fahrplan -->
+            <section>
+                <p class="phase-badge">Zusammenfassung</p>
+                <h2 style="font-size: 1.3em;">Euer 7-Tage-Fahrplan</h2>
+                <div style="max-width: 680px; margin: 0.6em auto;">
+                    <ol class="step-list">
+                        <li>
+                            <span><strong>Heute Abend:</strong> mediennutzungsvertrag.de anschauen</span>
+                        </li>
+                        <li>
+                            <span><strong>Morgen:</strong> Bildschirmzeit prüfen &ndash; eure eigene + die des Kindes</span>
+                        </li>
+                        <li>
+                            <span><strong>Diese Woche:</strong> Handygarage einrichten</span>
+                        </li>
+                        <li>
+                            <span><strong>Am Wochenende:</strong> Mit dem Kind über gemeinsame Regeln sprechen</span>
+                        </li>
+                        <li>
+                            <span><strong>Nächste Woche:</strong> Mediennutzungsvertrag gemeinsam erstellen</span>
+                        </li>
+                    </ol>
+                </div>
+                <p style="font-size: 0.5em; color: var(--text-muted); margin-top: 1em;">Kleine Schritte. Jeder einzelne zählt.</p>
+                <aside class="notes">
+                    Konkret und machbar. "Ihr müsst nicht alles auf einmal umsetzen. Aber fangt heute Abend an." 1) Heute Abend auf dem Sofa: mediennutzungsvertrag.de aufrufen und durchlesen. 2) Morgen: Schaut mal in eure eigene Bildschirmzeit – und wenn euer Kind ein Smartphone hat, auch in seine. 3) Diese Woche: Korb kaufen, Ladekabel rein, im Flur aufstellen. 4) Am Wochenende: In Ruhe mit dem Kind reden. Nicht als Strafe, sondern als gemeinsames Projekt. 5) Nächste Woche: Vertrag erstellen und beide unterschreiben.
+                </aside>
+            </section>
+
+            <!-- Folie 28 - Anlaufstellen -->
+            <section>
+                <p class="phase-badge">Ressourcen</p>
+                <h2 style="font-size: 1.3em;">Hilfe &amp; Anlaufstellen</h2>
+                <div class="card" style="max-width: 700px; margin: 0.5em auto; padding: 0.8em 1.2em;">
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#128222;</span>
+                        <span><strong>Nummer gegen Kummer:</strong> 116 111 (Kinder) / 0800 111 0550 (Eltern)</span>
+                    </div>
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#127760;</span>
+                        <span><strong>klicksafe.de</strong> &ndash; EU-Initiative für Online-Sicherheit</span>
+                    </div>
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#127760;</span>
+                        <span><strong>schau-hin.info</strong> &ndash; Medienratgeber für Familien</span>
+                    </div>
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#127760;</span>
+                        <span><strong>internet-abc.de</strong> &ndash; Wissen, wie's geht (für Kinder + Eltern)</span>
+                    </div>
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#127760;</span>
+                        <span><strong>mediennutzungsvertrag.de</strong> &ndash; Vertrag zum Selbsterstellen</span>
+                    </div>
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#128222;</span>
+                        <span><strong>Beratungsstelle:</strong> 0611 368 6300</span>
+                    </div>
+                    <div class="resource-item">
+                        <span style="min-width: 1.5em; text-align: center;">&#128214;</span>
+                        <span><strong>Buchtipp:</strong> Daniel Wolff &ndash; "Allein mit dem Handy"</span>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Auf das Handout verweisen. "All diese Links und Nummern findet ihr auch auf dem Handout, das ihr gleich bekommt." Nummer gegen Kummer: Kostenfrei, anonym, für Kinder UND Eltern. Klicksafe: Die wichtigste deutschsprachige Ressource für Online-Sicherheit. Schau-hin: Vom BMFSFJ, sehr praktisch orientiert. Internet-ABC: Perfekt für Kinder, die spielerisch lernen wollen. Daniel Wolff "Allein mit dem Handy": Sehr gutes, aktuelles Buch zum Thema.
+                </aside>
+            </section>
+
+            <!-- Folie 29 - Handout QR-Code -->
+            <section>
+                <p class="phase-badge">Ressourcen</p>
+                <h2 style="font-size: 1.4em;">Alle Links zum Mitnehmen</h2>
+                <p style="font-size: 0.6em; color: var(--text-secondary); margin-bottom: 0.5em;">
+                    Zahlen, Tipps und Anlaufstellen &ndash; alles auf einen Blick
+                </p>
+                <div class="qr-placeholder">
+                    [ QR-Code ]<br>wird ergänzt
+                </div>
+                <p style="font-size: 0.55em; color: var(--text-muted);">
+                    Scannt den Code für das digitale Handout
+                </p>
+                <aside class="notes">
+                    Handout verteilen oder QR-Code scannen lassen. "Auf dem Handout findet ihr alle Zahlen, alle Links und alle Tipps von heute Abend. Ihr müsst euch nichts merken – nehmt das einfach mit." Wenn das Handout digital ist: QR-Code zeigen und kurz warten, bis alle gescannt haben.
+                </aside>
+            </section>
+
+            <!-- Folie 30 - Abschlussfolie -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%)">
+                <div style="margin-top: -0.5em;">
+                    <h2 style="font-size: 2em; margin-bottom: 0.5em;">Danke!</h2>
+                    <div class="divider" style="margin-bottom: 1em;"></div>
+                    <p class="big-quote" style="font-size: 0.9em; color: var(--text-secondary); max-width: 700px;">
+                        "Es gibt nur einen funktionierenden Jugendschutz im Internet &ndash;<br>
+                        <span class="accent-amber">anwesende Eltern.</span>"
+                    </p>
+                    <div style="margin-top: 2em;">
+                        <p style="font-size: 0.5em; color: var(--text-muted);">
+                            Daniel Gaiswinkler&ensp;|&ensp;Das Projekt e.V.
+                        </p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    "Vielen Dank, dass ihr euch die Zeit genommen habt. Das zeigt, dass ihr gute Eltern seid, die sich kümmern." Fragen beantworten, zum persönlichen Gespräch einladen. "Wenn jemand noch Fragen hat oder privat sprechen möchte – ich bin noch da. Und denkt dran: Heute Abend mediennutzungsvertrag.de anschauen!"
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            // Navigation
+            hash: true,
+            history: true,
+            touch: true,
+            keyboard: true,
+
+            // Display
+            width: 1280,
+            height: 720,
+            margin: 0.08,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Appearance
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            // UI
+            controls: true,
+            controlsLayout: 'bottom-right',
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+
+            // Speaker Notes
+            showNotes: false,
+
+            // Auto-slide off
+            autoSlide: 0,
+
+            // Center content vertically
+            center: true,
+
+            // Loop
+            loop: false,
+
+            // Fragments
+            fragments: true,
+        });
+    </script>
+</body>
+</html>

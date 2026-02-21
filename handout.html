@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Das erste Smartphone – Was Eltern wissen müssen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #f59e0b;
+    --amber-light: #fef3c7;
+    --amber-dark: #b45309;
+    --petrol: #0d9488;
+    --petrol-light: #ccfbf1;
+    --petrol-dark: #115e59;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+  }
+
+  body {
+    font-family: 'Source Sans 3', 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: var(--gray-800);
+    background: #fff;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 8mm 10mm;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.2;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding-bottom: 6pt;
+    margin-bottom: 8pt;
+    border-bottom: 3px solid var(--petrol);
+  }
+  .header-orgs {
+    font-size: 8pt;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 3pt;
+    font-weight: 600;
+  }
+  .header h1 {
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 2pt;
+  }
+  .header h1 span {
+    color: var(--petrol);
+  }
+  .header-meta {
+    font-size: 8.5pt;
+    color: var(--gray-500);
+  }
+  .header-meta strong {
+    color: var(--gray-700);
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-bottom: 8pt;
+  }
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--petrol-dark);
+    border-left: 4px solid var(--amber);
+    padding-left: 6pt;
+    margin-bottom: 4pt;
+  }
+
+  /* ── Stats Box ── */
+  .stats-box {
+    border: 2px solid var(--amber);
+    border-radius: 6px;
+    padding: 6pt 8pt;
+    background: var(--amber-light);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4pt 10pt;
+  }
+  .stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+  }
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 13pt;
+    font-weight: 800;
+    color: var(--amber-dark);
+    white-space: nowrap;
+  }
+  .stat-label {
+    font-size: 8pt;
+    color: var(--gray-700);
+    line-height: 1.25;
+  }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+  }
+  th {
+    background: var(--petrol);
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 3pt 5pt;
+    font-size: 8pt;
+  }
+  td {
+    padding: 2.5pt 5pt;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td {
+    background: var(--gray-50);
+  }
+  .risk-high {
+    color: var(--red);
+    font-weight: 600;
+  }
+  .risk-high::before {
+    content: "! ";
+    font-weight: 800;
+  }
+
+  /* ── Two-column layouts ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8pt;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6pt;
+  }
+
+  /* ── Cards ── */
+  .card {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 5px;
+    padding: 5pt 7pt;
+  }
+  .card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--petrol-dark);
+    margin-bottom: 3pt;
+    padding-bottom: 2pt;
+    border-bottom: 1.5px solid var(--petrol-light);
+  }
+  .card ol, .card ul {
+    padding-left: 14pt;
+    font-size: 8.5pt;
+  }
+  .card li {
+    margin-bottom: 1pt;
+  }
+  .premium-tip {
+    font-size: 8pt;
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    padding: 2pt 5pt;
+    margin-top: 3pt;
+  }
+
+  /* ── Checklists ── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    font-size: 8.5pt;
+  }
+  .checklist li {
+    padding: 1.5pt 0 1.5pt 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+  }
+  .checklist li::before {
+    content: "\2610";
+    font-size: 11pt;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .checklist .note {
+    color: var(--petrol-dark);
+    font-weight: 600;
+    font-size: 7.5pt;
+  }
+
+  /* ── Rules Section ── */
+  .rules-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: rule;
+  }
+  .rules-list li {
+    counter-increment: rule;
+    padding: 2pt 0;
+    display: flex;
+    align-items: baseline;
+    gap: 5pt;
+    font-size: 8.5pt;
+  }
+  .rules-list li::before {
+    content: counter(rule);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16pt;
+    height: 16pt;
+    border-radius: 50%;
+    background: var(--petrol);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .rules-list .fill-line {
+    border-bottom: 1px dotted var(--gray-300);
+    flex: 0 0 50pt;
+  }
+  .rules-note {
+    text-align: center;
+    font-weight: 700;
+    color: var(--amber-dark);
+    font-size: 8.5pt;
+    margin-top: 3pt;
+    padding: 2pt;
+    border: 1.5px dashed var(--amber);
+    border-radius: 4px;
+  }
+
+  /* ── Legal Box ── */
+  .legal-box {
+    border: 2px solid var(--red);
+    border-radius: 6px;
+    padding: 5pt 7pt;
+    background: var(--red-light);
+  }
+  .legal-box .section-title {
+    color: var(--red);
+    border-left-color: var(--red);
+  }
+  .legal-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: legal;
+  }
+  .legal-list li {
+    counter-increment: legal;
+    padding: 1.5pt 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+    font-size: 8.5pt;
+  }
+  .legal-list li::before {
+    content: counter(legal) ".";
+    font-weight: 800;
+    color: var(--red);
+    flex-shrink: 0;
+    font-size: 9pt;
+  }
+  .legal-list strong {
+    color: var(--red);
+  }
+
+  /* ── QR Resources ── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5pt 10pt;
+  }
+  .resource-item {
+    display: flex;
+    align-items: center;
+    gap: 5pt;
+    font-size: 8.5pt;
+  }
+  .resource-item .qr-code {
+    flex-shrink: 0;
+  }
+  .resource-item .qr-code canvas,
+  .resource-item .qr-code img {
+    width: 48pt;
+    height: 48pt;
+  }
+  .resource-info strong {
+    display: block;
+    color: var(--petrol-dark);
+    font-size: 9pt;
+  }
+  .resource-info span {
+    color: var(--gray-500);
+    font-size: 7.5pt;
+  }
+  .phone-numbers {
+    font-size: 8.5pt;
+    margin-top: 4pt;
+    padding-top: 4pt;
+    border-top: 1px solid var(--gray-200);
+  }
+  .phone-numbers div {
+    margin-bottom: 1.5pt;
+  }
+  .phone-numbers .number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--petrol-dark);
+    font-size: 10pt;
+  }
+
+  /* ── 7-Day Plan ── */
+  .plan-list {
+    list-style: none;
+    padding: 0;
+  }
+  .plan-list li {
+    padding: 2pt 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4pt;
+    font-size: 8.5pt;
+  }
+  .plan-list li::before {
+    content: "\2610";
+    font-size: 11pt;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .plan-when {
+    font-weight: 700;
+    color: var(--petrol-dark);
+    white-space: nowrap;
+    min-width: 80pt;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 8pt;
+    padding-top: 5pt;
+    border-top: 2px solid var(--petrol);
+    text-align: center;
+  }
+  .footer-motto {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--petrol-dark);
+    letter-spacing: 2px;
+    margin-bottom: 2pt;
+  }
+  .footer-info {
+    font-size: 7.5pt;
+    color: var(--gray-500);
+  }
+
+  /* ── Bildschirmzeit-Tabelle ── */
+  .screen-table {
+    font-size: 8.5pt;
+  }
+  .screen-table th {
+    background: var(--petrol);
+  }
+  .screen-table .highlight-row td {
+    background: var(--petrol-light);
+    font-weight: 600;
+  }
+
+  /* ── Page breaks ── */
+  .page-break {
+    page-break-before: always;
+    padding-top: 4pt;
+  }
+
+  /* ══════════════════════════════════════
+     PRINT STYLES
+     ══════════════════════════════════════ */
+  @media print {
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    body {
+      padding: 0;
+      font-size: 9pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .stats-box {
+      background: none;
+      border: 2px solid #333;
+    }
+    .stat-number {
+      color: #000;
+    }
+    th {
+      background: #333 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .legal-box {
+      background: none;
+      border: 2.5px solid #333;
+    }
+    .rules-list li::before {
+      background: #333;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .card {
+      border: 1.5px solid #666;
+    }
+    .premium-tip {
+      background: none;
+      border-left: 3px solid #333;
+    }
+    .rules-note {
+      border: 2px dashed #333;
+    }
+    a { color: inherit; text-decoration: none; }
+    .no-print { display: none; }
+  }
+
+  /* ── Screen-only helpers ── */
+  @media screen {
+    body {
+      padding: 10mm 12mm;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     1. HEADER
+     ════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-orgs">Eschenburgschule &middot; Das Projekt e.V.</div>
+  <h1>Das erste Smartphone &ndash; <span>Was Eltern wissen müssen</span></h1>
+  <div class="header-meta">
+    Referent: <strong>Daniel Gaiswinkler</strong> &nbsp;|&nbsp;
+    Datum: <strong>________________</strong>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     2. STATISTIKEN
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <h2 class="section-title">Die wichtigsten Zahlen auf einen Blick</h2>
+  <div class="stats-box">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">63%</span>
+        <span class="stat-label">der 10-11-Jährigen haben ein Smartphone</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">262 Min</span>
+        <span class="stat-label">Gaming (105) + Social Media (157) täglich</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">25%</span>
+        <span class="stat-label">von Cybergrooming betroffen, nur 4% sprechen mit Eltern</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">42%</span>
+        <span class="stat-label">haben Pornos gesehen (Erstkontakt: 12,7 J.)</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4,7%</span>
+        <span class="stat-label">pathologisch abhängig (+126% seit 2019)</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">33.000&euro;</span>
+        <span class="stat-label">dokumentierter Fall In-App-Käufe</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     3. APP-ÜBERSICHT
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <h2 class="section-title">App-Übersicht mit Altersfreigaben</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:15%">App</th>
+        <th style="width:15%">Offizielles Alter</th>
+        <th style="width:20%">Empfehlung</th>
+        <th>Risiken</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>WhatsApp</strong></td>
+        <td>ab 13</td>
+        <td>Mit Begleitung</td>
+        <td>50%+ der 6-13-Jährigen nutzen es bereits</td>
+      </tr>
+      <tr>
+        <td><strong>TikTok</strong></td>
+        <td>ab 13</td>
+        <td>Erst ab 14+</td>
+        <td><span class="risk-high">38h/Monat, suchtfördernder Algorithmus</span></td>
+      </tr>
+      <tr>
+        <td><strong>Roblox</strong></td>
+        <td>USK ab 16</td>
+        <td>Nur mit Aufsicht</td>
+        <td><span class="risk-high">40% der Nutzer unter 13, Kontaktrisiko</span></td>
+      </tr>
+      <tr>
+        <td><strong>YouTube</strong></td>
+        <td>ab 13 (Konto)</td>
+        <td>YouTube Kids nutzen</td>
+        <td>85% der Inhalte enthalten Werbung</td>
+      </tr>
+      <tr>
+        <td><strong>Fortnite</strong></td>
+        <td>ab 12</td>
+        <td>Nur mit Limits</td>
+        <td>Skins bis 20&euro;, sozialer Druck</td>
+      </tr>
+      <tr>
+        <td><strong>Brawl Stars</strong></td>
+        <td>&ndash;</td>
+        <td style="color:var(--red);font-weight:600">Nicht empfohlen</td>
+        <td><span class="risk-high">Stiftung Warentest: "inakzeptabel"</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ════════════════════════════════════════════
+     4. KINDERSICHERUNG + 5. MEDIENVERTRAG
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <h2 class="section-title">Kindersicherung einrichten</h2>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">&#63743; Apple (iPhone / iPad)</div>
+      <ol>
+        <li>Einstellungen &rarr; Bildschirmzeit &rarr; einschalten</li>
+        <li>App-Limits &amp; Kommunikationsgrenzen setzen</li>
+        <li>Inhaltsbeschränkungen aktivieren</li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="card-title">&#129302; Android</div>
+      <ol>
+        <li>Google Family Link App installieren (Eltern + Kind)</li>
+        <li>Tages-/App-Limits setzen</li>
+        <li>JusProg (kostenloser Webfilter) zusätzlich installieren</li>
+      </ol>
+    </div>
+  </div>
+  <div class="premium-tip">
+    <strong>Premium-Tipp:</strong> Salfeld Kindersicherung (Testsieger Stiftung Warentest, Note 2,0)
+  </div>
+</div>
+
+<div class="section">
+  <div class="two-col" style="align-items:center">
+    <div>
+      <h2 class="section-title">Mediennutzungsvertrag</h2>
+      <p style="font-size:8.5pt;margin-top:3pt">
+        <strong style="color:var(--petrol)">mediennutzungsvertrag.de</strong> &ndash;
+        Gemeinsam mit dem Kind erstellen &ndash; auch <em>EURE</em> Regeln!<br>
+        <span style="color:var(--gray-500);font-size:7.5pt">Von klicksafe + Internet-ABC, kostenlos</span>
+      </p>
+    </div>
+    <div style="text-align:right">
+      <div id="qr-medienvertrag" class="qr-code" style="display:inline-block"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     6. BILDSCHIRMZEIT + 7. HANDYFREIE ZONEN
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="two-col">
+    <div>
+      <h2 class="section-title">Bildschirmzeit-Empfehlungen</h2>
+      <table class="screen-table" style="margin-top:3pt">
+        <thead>
+          <tr><th>Quelle</th><th>Empfehlung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BZgA</td><td>Max. 1h/Tag oder 7h/Woche</td></tr>
+          <tr><td>Kinderärzte</td><td>Max. 45-60 Min/Tag</td></tr>
+          <tr class="highlight-row"><td><strong>Faustregel</strong></td><td><strong>Alter in Jahren = Wochenstunden</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h2 class="section-title">Handyfreie Zonen</h2>
+      <ul class="checklist" style="margin-top:3pt">
+        <li>Esstisch</li>
+        <li>Schlafzimmer <span class="note">(= 40 Min mehr Schlaf!)</span></li>
+        <li>Bei Hausaufgaben</li>
+        <li>1-2h vor dem Schlafen</li>
+        <li>"Handygarage" im Flur eingerichtet</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE BREAK
+     ════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<!-- ════════════════════════════════════════════
+     8. FAMILIEN-REGELN
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <h2 class="section-title">5 Regeln für den Familien-Mediennutzungsvertrag</h2>
+  <ol class="rules-list">
+    <li>Bildschirmzeit: Max. <span class="fill-line"></span> Min pro Tag</li>
+    <li>Handyfreie Zeiten: Ab <span class="fill-line"></span> Uhr abends</li>
+    <li>Neue Apps nur nach gemeinsamer Prüfung</li>
+    <li>Keine persönlichen Daten/Fotos ohne Erlaubnis</li>
+    <li>Probleme ansprechen &ndash; ohne Strafen!</li>
+  </ol>
+  <div class="rules-note">Diese Regeln gelten für ALLE in der Familie!</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     9. RECHTLICHE KURZINFO
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="legal-box">
+    <h2 class="section-title">Rechtliche Kurzinfo &ndash; 5 Fallstricke</h2>
+    <ol class="legal-list">
+      <li><strong>Kinderpornografie im Klassenchat</strong> = Hausdurchsuchung (auch unter 14!)</li>
+      <li><strong>Kinderfotos ohne Einwilligung</strong> posten/teilen = rechtswidrig</li>
+      <li><strong>In-App-Käufe ohne Kontrolle</strong> = Elternhaftung (bis 33.000&euro;+)</li>
+      <li><strong>Filesharing ohne Belehrung</strong> des Kindes = Störerhaftung der Eltern</li>
+      <li><strong>WhatsApp unter 16</strong> = formell Einwilligung der Eltern nötig</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     10. HILFE & ANLAUFSTELLEN
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <h2 class="section-title">Hilfe &amp; Anlaufstellen</h2>
+  <div class="phone-numbers" style="border:none;margin:0;padding:0 0 5pt 0">
+    <div>
+      <strong>Nummer gegen Kummer (Kinder):</strong> <span class="number">116 111</span>
+      &nbsp;&nbsp;&nbsp;
+      <strong>Elterntelefon:</strong> <span class="number">0800 111 0550</span>
+      &nbsp;&nbsp;&nbsp;
+      <strong>Beratungsstelle Jugend &amp; Medien Hessen:</strong> <span class="number">0611 368 6300</span>
+    </div>
+    <div style="margin-top:2pt;font-size:8pt;color:var(--gray-500)">
+      <strong style="color:var(--gray-700)">Buchtipp:</strong> Daniel Wolff &ndash; "Allein mit dem Handy" (SPIEGEL-Bestseller)
+    </div>
+  </div>
+  <div class="resources-grid">
+    <div class="resource-item">
+      <div id="qr-klicksafe" class="qr-code"></div>
+      <div class="resource-info">
+        <strong>klicksafe.de</strong>
+        <span>Materialien &amp; Leitfäden für Eltern</span>
+      </div>
+    </div>
+    <div class="resource-item">
+      <div id="qr-schauhin" class="qr-code"></div>
+      <div class="resource-info">
+        <strong>schau-hin.info</strong>
+        <span>Altersempfehlungen &amp; Tipps</span>
+      </div>
+    </div>
+    <div class="resource-item">
+      <div id="qr-internetabc" class="qr-code"></div>
+      <div class="resource-info">
+        <strong>internet-abc.de</strong>
+        <span>Lernmodule für Kinder</span>
+      </div>
+    </div>
+    <div class="resource-item">
+      <div id="qr-medienvertrag2" class="qr-code"></div>
+      <div class="resource-info">
+        <strong>mediennutzungsvertrag.de</strong>
+        <span>Vertrag zum Ausdrucken</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     11. 7-TAGE-FAHRPLAN
+     ════════════════════════════════════════════ -->
+<div class="section">
+  <h2 class="section-title">Dein 7-Tage-Fahrplan</h2>
+  <ul class="plan-list">
+    <li><span class="plan-when">Heute Abend:</span> mediennutzungsvertrag.de anschauen</li>
+    <li><span class="plan-when">Morgen:</span> Bildschirmzeit-Einstellungen prüfen (eigenes Handy + Kind)</li>
+    <li><span class="plan-when">Diese Woche:</span> Handygarage einrichten</li>
+    <li><span class="plan-when">Am Wochenende:</span> Mit dem Kind über Regeln sprechen</li>
+    <li><span class="plan-when">Nächste Woche:</span> Mediennutzungsvertrag gemeinsam erstellen</li>
+  </ul>
+</div>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="footer-motto">Begleiten. Befähigen. Begrenzen.</div>
+  <div class="footer-info">Daniel Gaiswinkler &nbsp;|&nbsp; Das Projekt e.V. &nbsp;&middot;&nbsp; Eschenburgschule</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     QR-CODE GENERATION
+     ════════════════════════════════════════════ -->
+<script>
+(function() {
+  var qrConfigs = [
+    { id: 'qr-medienvertrag',  url: 'https://www.mediennutzungsvertrag.de' },
+    { id: 'qr-klicksafe',      url: 'https://www.klicksafe.de' },
+    { id: 'qr-schauhin',       url: 'https://www.schau-hin.info' },
+    { id: 'qr-internetabc',    url: 'https://www.internet-abc.de' },
+    { id: 'qr-medienvertrag2', url: 'https://www.mediennutzungsvertrag.de' }
+  ];
+
+  qrConfigs.forEach(function(cfg) {
+    var el = document.getElementById(cfg.id);
+    if (!el) return;
+
+    var qr = qrcode(0, 'M');
+    qr.addData(cfg.url);
+    qr.make();
+
+    var moduleCount = qr.getModuleCount();
+    var cellSize = 2;
+    var margin = 2;
+    var size = moduleCount * cellSize + margin * 2;
+
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + size + ' ' + size + '" width="48" height="48">';
+    svg += '<rect width="' + size + '" height="' + size + '" fill="#fff"/>';
+
+    for (var row = 0; row < moduleCount; row++) {
+      for (var col = 0; col < moduleCount; col++) {
+        if (qr.isDark(row, col)) {
+          svg += '<rect x="' + (col * cellSize + margin) + '" y="' + (row * cellSize + margin) + '" width="' + cellSize + '" height="' + cellSize + '" fill="#000"/>';
+        }
+      }
+    }
+    svg += '</svg>';
+    el.innerHTML = svg;
+  });
+})();
+</script>
+
+</body>
+</html>
