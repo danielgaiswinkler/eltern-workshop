@@ -463,6 +463,131 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.08);
     }
   }
+
+  /* ══════════════════════════════════════
+     MOBILE STYLES
+     ══════════════════════════════════════ */
+  @media screen and (max-width: 600px) {
+    body {
+      padding: 12px 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 100%;
+    }
+    .header h1 {
+      font-size: 20px;
+    }
+    .header-orgs {
+      font-size: 11px;
+    }
+    .header-meta {
+      font-size: 12px;
+    }
+
+    /* Stats: 2 columns instead of 3 */
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .stat-number {
+      font-size: 22px;
+    }
+    .stat-label {
+      font-size: 11px;
+    }
+
+    /* Section titles */
+    .section {
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 16px;
+    }
+
+    /* Tables: horizontal scroll */
+    table {
+      font-size: 13px;
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    thead, tbody, tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    th, td {
+      padding: 6px 8px;
+    }
+
+    /* Two-col → single col */
+    .two-col, .three-col {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    /* Cards */
+    .card {
+      padding: 10px 12px;
+    }
+    .card-title {
+      font-size: 14px;
+    }
+    .card ol, .card ul {
+      font-size: 13px;
+    }
+    .premium-tip {
+      font-size: 12px;
+    }
+
+    /* Checklists */
+    .checklist li, .plan-list li, .rules-list li, .legal-list li {
+      font-size: 13px;
+      padding: 4px 0;
+    }
+    .plan-when {
+      min-width: auto;
+      white-space: normal;
+    }
+
+    /* Rules */
+    .rules-note {
+      font-size: 13px;
+    }
+
+    /* Resources */
+    .resources-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .resource-item {
+      font-size: 13px;
+    }
+    .phone-numbers {
+      font-size: 13px;
+    }
+    .phone-numbers .number {
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer-motto {
+      font-size: 15px;
+    }
+    .footer-info {
+      font-size: 11px;
+    }
+
+    /* No page breaks on mobile */
+    .page-break {
+      page-break-before: auto;
+    }
+
+    /* Screen table */
+    .screen-table {
+      font-size: 13px;
+    }
+  }
 </style>
 </head>
 <body>
