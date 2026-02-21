@@ -39,7 +39,18 @@
             color: var(--text-primary);
         }
         .reveal .slides section {
-            text-align: center;
+            text-align: center !important;
+        }
+        .reveal .slides section > h2,
+        .reveal .slides section > h3,
+        .reveal .slides section > p,
+        .reveal .slides section > div {
+            text-align: center !important;
+        }
+        .reveal .slides .big-quote {
+            text-align: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
