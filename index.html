@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Das erste Smartphone – Was Eltern wissen müssen</title>
 
-    <!-- Reveal.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+    <!-- Reveal.js CSS (lokal) -->
+    <link rel="stylesheet" href="vendor/revealjs/reveal.css">
+    <link rel="stylesheet" href="vendor/revealjs/black.css" id="theme">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts (lokal) -->
+    <link rel="stylesheet" href="vendor/fonts/fonts.css">
 
     <style>
         :root {
@@ -454,6 +452,24 @@
     </style>
 </head>
 <body>
+
+    <!-- Fullscreen Button -->
+    <button id="fs-btn" onclick="toggleFS()" title="Vollbild ein/aus" style="position:fixed;top:14px;right:14px;z-index:9999;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);border-radius:8px;padding:7px 13px;cursor:pointer;font-size:16px;backdrop-filter:blur(6px);transition:all 0.2s;line-height:1;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">⛶</button>
+    <script>
+        function toggleFS() {
+            var btn = document.getElementById('fs-btn');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        document.addEventListener('fullscreenchange', function() {
+            var btn = document.getElementById('fs-btn');
+            btn.textContent = document.fullscreenElement ? '✕' : '⛶';
+        });
+    </script>
+
     <div class="reveal">
         <div class="slides">
 
@@ -478,18 +494,57 @@
                 </aside>
             </section>
 
-            <!-- Folie 2 - Persönliche Vorstellung -->
+            <!-- Folie 2 - Persönliche Vorstellung (mit Smartphone-Bekenntnis) -->
             <section>
                 <p class="phase-badge">Ankommen</p>
                 <h2>Ich bin auch nur ein Vater.</h2>
-                <div class="divider" style="margin-bottom: 1em;"></div>
-                <p style="font-size: 0.7em; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                <div class="divider" style="margin-bottom: 0.8em;"></div>
+                <p style="font-size: 0.7em; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.6;">
                     Internet-Nerd. Passionierter Gamer. KI-Berater.<br>
-                    Und trotzdem stehe ich vor denselben Fragen wie ihr.<br>
-                    <span class="accent-amber">Ich dachte, ich kenne das Internet. Dann habe ich mich eingelesen.</span>
+                    <span class="accent-amber">Und ich bin selbst viel zu oft am Handy.</span>
+                </p>
+                <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.6em; margin: 0; line-height: 1.6; font-style: italic;">
+                        "Ich erwische mich ständig dabei. Dieses automatische Greifen zum Handy &ndash; beim Frühstück, auf der Couch, wenn die Kinder spielen. Obwohl ich es <strong class="accent-amber">besser weiß</strong>."
+                    </p>
+                </div>
+                <p style="font-size: 0.55em; color: var(--text-muted); margin-top: 0.5em;">
+                    Wenn es bei uns Erwachsenen schon so krass wirkt &ndash;<br>
+                    <span class="accent-red">wie krass wirkt es dann erst bei unseren Kindern?</span>
                 </p>
                 <aside class="notes">
-                    Persönlich erzählen: "Ich bin nicht nur Vater – ich bin selbst ein Internet-Nerd und passionierter Gamer. Ich weiß aus eigener Erfahrung, wie süchtig Videospiele machen können. Ich bin beruflich als KI-Berater unterwegs, also ich lebe quasi im Internet." PAUSE. "Und trotzdem: Als ich angefangen habe, mich wirklich mit dem Thema Kinder und Smartphones zu beschäftigen, war ich geschockt. Wenn MICH das schockt – wie soll es Eltern gehen, die nicht so digital unterwegs sind?" Das baut Glaubwürdigkeit auf: Kein ahnungsloser Boomer, sondern ein Insider, der die Realität kennt.
+                    Ehrlich, verletzlich, direkt. "Ich bin nicht nur Vater – ich bin selbst ein Internet-Nerd und passionierter Gamer. Ich bin beruflich als KI-Berater unterwegs, ich lebe quasi im Internet." PAUSE. "Und ich bekenne mich schuldig: Ich bin viel zu oft am Handy. Ich erwische mich ständig. Beim Frühstück. Auf der Couch. Wenn die Kinder spielen. Dieses automatische Greifen – obwohl ich es besser weiß." Blickkontakt. "Und ich glaube, den meisten von euch geht es genauso. Und das ist auch kein Vorwurf – denn das hat einen Grund. Das liegt nicht an mangelnder Disziplin. Es liegt daran, dass dieses Gerät absichtlich so gebaut wurde." PAUSE. "Und jetzt die wichtige Frage: Wenn das bei UNS Erwachsenen schon so krass wirkt – wie krass wirkt es dann erst bei unseren Kindern? Die wollen natürlich erstmal Spaß. Aber sie werden verdammt schnell abhängig von dem Ding. Und die haben eine Sache noch NICHT, die wir haben – eine fertig entwickelte Bremse im Kopf." ÜBERLEITUNG: "Und warum das so ist, zeige ich euch jetzt."
+                </aside>
+            </section>
+
+            <!-- Folie 2b - Dopamin: Euer Smartphone dealt Drogen (NEU) -->
+            <section>
+                <p class="phase-badge">Ankommen</p>
+                <h2 style="font-size: 1.5em;">Euer Smartphone<br><span class="accent-red">dealt Dopamin.</span></h2>
+                <div class="card-grid card-grid-3" style="max-width: 750px; margin: 0.6em auto;">
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div class="stat-number accent-red" style="font-size: 1.6em;">205&times;</div>
+                        <div class="stat-label">checken wir das Handy<br><strong>pro Tag</strong></div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
+                        <div class="stat-number accent-amber" style="font-size: 1.6em;">90%</div>
+                        <div class="stat-label">spüren <strong>Phantom-<br>Vibrationen</strong></div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                        <div class="stat-number accent-teal" style="font-size: 1.6em;">IQ &darr;</div>
+                        <div class="stat-label">Handy liegt <strong>nur daneben</strong><br>und du denkst schlechter</div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 700px; margin: 0.5em auto; border-left: 3px solid var(--red); text-align: left;">
+                    <p style="font-size: 0.6em; margin: 0; line-height: 1.4; font-style: italic;">
+                        "Wir haben <strong class="accent-red">Verhaltens-Kokain</strong> über das gesamte Interface verstreut."
+                    </p>
+                    <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.2em 0 0;">
+                        &ndash; Aza Raskin, Erfinder des Infinite Scroll (bereut es öffentlich)
+                    </p>
+                </div>
+                <aside class="notes">
+                    "Warum greifen wir ständig zum Handy? Das hat einen Namen: Dopamin." Kurz erklären: "Dopamin ist ein Botenstoff im Gehirn. Jede Benachrichtigung, jedes Like, jeder neue Post – das löst einen kleinen Dopamin-Kick aus. Und das Verrückte: fMRI-Scans zeigen, dass Smartphone-Sucht und Drogensucht die GLEICHEN Gehirnregionen aktivieren. Das ist keine Übertreibung, das ist Neurowissenschaft." PAUSE. "205 Mal am Tag checken wir das Handy. Das ist alle 5 Minuten. Und kennt ihr das: Das Handy vibriert – aber wenn man draufschaut, ist da gar nichts? Das heißt Phantom Vibration Syndrome. Bis zu 90% der Nutzer erleben das. Euer Gehirn halluziniert Handy-Signale. Das ist ein klares Zeichen für neurologische Abhängigkeit." PAUSE. "Und jetzt das Krasseste: Die Uni Texas hat das mit 800 Leuten getestet – selbst wenn euer Handy AUS ist und nur auf dem Tisch liegt, sinkt eure Denkleistung messbar. Euer Gehirn verbraucht Kapazität, um das Ding aktiv zu IGNORIEREN." PAUSE. "Kennt ihr den Hebel am einarmigen Banditen? Dieses Pull to Refresh auf dem Handy funktioniert genauso. Man zieht den Feed runter – vielleicht kommt was Tolles, vielleicht nicht. Die Psychologie nennt das Variable Ratio Reinforcement – das stärkste bekannte Suchtmuster." Aza Raskin Zitat: "Der Mann, der den Infinite Scroll erfunden hat – dieses endlose Scrollen auf Instagram, TikTok, überall – der bereut es öffentlich. Er sagt: Wir haben Verhaltens-Kokain über das Interface verstreut." PAUSE. "Das ist kein Zufall. Das ist Kalkül. Und JETZT stellt euch vor: Wenn das bei uns Erwachsenen schon so wirkt – bei unseren Kindern ist der Teil des Gehirns, der 'Stopp' sagen kann, erst mit 25 fertig entwickelt. Die haben Gas ohne Bremse." ÜBERLEITUNG: "Und jetzt, wo ihr das wisst – Hand aufs Herz..."
                 </aside>
             </section>
 
@@ -513,7 +568,7 @@
             </section>
 
             <!-- Folie 4 - Die unbequeme Wahrheit -->
-            <section>
+            <section data-background-image="images/esstisch.jpg" data-background-opacity="0.2">
                 <p class="phase-badge">Realitätscheck</p>
                 <div class="big-number accent-amber">90%</div>
                 <p style="font-size: 0.7em; max-width: 700px; margin: 0 auto; line-height: 1.5;">
@@ -705,40 +760,72 @@
             <!-- Folie 8b - Gaming Suchtdesign -->
             <section>
                 <p class="phase-badge">Die Realität</p>
-                <h2 style="font-size: 1.2em; margin-bottom: 0.3em;">Gaming-Industrie:<br><span class="accent-amber">Bewusstes Suchtdesign</span></h2>
-                <div class="stat-card" style="max-width: 480px; margin: 0.3em auto; padding: 0.6em 1em; border-top: 3px solid var(--amber);">
-                    <div class="stat-number accent-amber" style="font-size: 1.6em;">26 Mrd. $</div>
-                    <div class="stat-label" style="font-size: 0.48em;">Fortnite-Umsatz (2017&ndash;2023) &ndash; Mehr als Avatar + Avengers + Titanic zusammen</div>
+                <h2 style="font-size: 1.1em; margin-bottom: 0.2em;">Gaming-Industrie:<br><span class="accent-amber">Bewusstes Suchtdesign</span></h2>
+                <div style="display: flex; gap: 1em; align-items: center; max-width: 800px; margin: 0.2em auto;">
+                    <img src="images/handygames.jpg" style="height: 130px; border-radius: 8px; flex-shrink: 0;">
+                    <div class="stat-card" style="flex: 1; padding: 0.4em 0.8em; border-top: 3px solid var(--amber);">
+                        <div class="stat-number accent-amber" style="font-size: 1.4em;">26 Mrd. $</div>
+                        <div class="stat-label" style="font-size: 0.44em;">Fortnite-Umsatz (2017&ndash;2023) &ndash; Mehr als Avatar + Avengers + Titanic zusammen</div>
+                    </div>
                 </div>
-                <div class="card-grid card-grid-2" style="max-width: 680px; margin: 0.4em auto; gap: 0.5em;">
-                    <div class="card" style="text-align: left; padding: 0.7em 1em;">
-                        <p style="font-size: 0.5em; margin: 0;">
+                <div class="card-grid card-grid-2" style="max-width: 680px; margin: 0.3em auto; gap: 0.35em;">
+                    <div class="card" style="text-align: left; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.48em; margin: 0;">
                             <strong class="accent-red">FOMO</strong><br>
                             "NUR HEUTE 45 Extra-Diamanten!"
                         </p>
                     </div>
-                    <div class="card" style="text-align: left; padding: 0.7em 1em;">
-                        <p style="font-size: 0.5em; margin: 0;">
+                    <div class="card" style="text-align: left; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.48em; margin: 0;">
                             <strong class="accent-red">Spielerirrtum</strong><br>
                             "Jetzt MUSS was Gutes kommen!"
                         </p>
                     </div>
-                    <div class="card" style="text-align: left; padding: 0.7em 1em;">
-                        <p style="font-size: 0.5em; margin: 0;">
+                    <div class="card" style="text-align: left; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.48em; margin: 0;">
                             <strong class="accent-red">Sunk Cost</strong><br>
                             "Hab schon 200&euro; investiert&hellip;"
                         </p>
                     </div>
-                    <div class="card" style="text-align: left; padding: 0.7em 1em;">
-                        <p style="font-size: 0.5em; margin: 0;">
+                    <div class="card" style="text-align: left; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.48em; margin: 0;">
                             <strong class="accent-red">Lootboxen</strong><br>
                             = Glücksspiel in Kinderfarben
                         </p>
                     </div>
                 </div>
-                <p class="text-xs" style="margin-top: 0.3em;">Stiftung Warentest Mai 2024: 15 von 16 Handy-Spielen &ldquo;inakzeptabel&rdquo; für Kinder</p>
+                <p class="text-xs" style="margin-top: 0.25em;">Stiftung Warentest Mai 2024: 15 von 16 Handy-Spielen &ldquo;inakzeptabel&rdquo; für Kinder</p>
                 <aside class="notes">
                     "Als Gamer kenne ich das selbst. Man denkt: 'Nur noch EIN Game.' Und plötzlich sind 3 Stunden weg." Fortnite hat 26 Milliarden Dollar Umsatz gemacht – mehr als die erfolgreichsten Kinofilme ALLER ZEITEN zusammen. Und das mit einem 'kostenlosen' Spiel! Die Industrie nennt das 'Let's go whaling' – Casino-Jargon für das gezielte Ködern von Vielzahlern. Die Dark Patterns erklären: FOMO = Fear of Missing Out, künstliche Verknappung – 'NUR HEUTE gibt es 45 Extra-Diamanten!' Spielerirrtum = 'Ich hab schon so oft verloren, jetzt muss was kommen' – die Chancen bleiben aber immer gleich. Sunk Cost = 'Hab schon so viel investiert, was sind da noch 50 Euro?' Lootboxen bei Brawl Stars: YouTuber öffnen Hunderte Megaboxen für Tausende Euro, Kinder schauen zu und wollen das nachmachen. "Diese Mechanismen sind IDENTISCH mit Spielautomaten. Nur verpackt in bunte Kinderfarben." Stiftung Warentest Mai 2024: 15 von 16 Spielen inakzeptabel! Nur Minecraft besteht halbwegs – weil man einmal zahlt. Werbung in Kinderspielen wird international von NIEMANDEM reguliert. Sexualisierte Werbung, extreme Gewalt, KI-Sex-Chatbots – alles in Spielen ab 0 Jahre. Es gibt sogar ein Reddit-Forum 'Shitty Mobile Game Ads' wo man sich über die Absurdität amüsiert. Leider ist es für unsere Kinder nicht lustig.
+                </aside>
+            </section>
+
+            <!-- Folie 8c - Insider packen aus -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2 style="font-size: 1.3em;">Die Macher bereuen es:<br><span class="accent-amber">Insider packen aus</span></h2>
+                <div style="max-width: 720px; margin: 0.6em auto;">
+                    <div class="card" style="border-left: 3px solid var(--red); margin-bottom: 0.5em; text-align: left;">
+                        <p style="font-size: 0.6em; margin: 0; line-height: 1.5; font-style: italic;">
+                            "Wir haben wunderbare technische Werkzeuge in eine <strong class="accent-red">Waffe verwandelt</strong>. Wer das meiste Geld bietet, darf sie auf unseren Kopf richten."
+                        </p>
+                        <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.3em 0 0;">&ndash; Aza Raskin, Center for Humane Technology &mdash; <em>Miterfinder des Infinite Scroll</em></p>
+                    </div>
+                    <div class="card" style="border-left: 3px solid var(--amber); margin-bottom: 0.5em; text-align: left;">
+                        <p style="font-size: 0.6em; margin: 0; line-height: 1.5; font-style: italic;">
+                            "Apple Watches, Google Phones, Facebook, Twitter schaffen es mit nur einem Klick, den nächsten <strong class="accent-amber">Dopaminrausch</strong> in uns auszulösen."
+                        </p>
+                        <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.3em 0 0;">&ndash; Tony Fadell &mdash; <em>Miterfinder von iPhone und iPod</em></p>
+                    </div>
+                    <div class="card" style="border-left: 3px solid var(--teal); text-align: left;">
+                        <p style="font-size: 0.6em; margin: 0; line-height: 1.5; font-style: italic;">
+                            "Das Geschäftsmodell des Silicon Valley: Es <strong class="accent-teal">schenkt uns seine Produkte</strong> &mdash; und macht dafür uns zu Produkten."
+                        </p>
+                        <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.3em 0 0;">&ndash; Andrew Keen, Autor &ldquo;How to Fix the Future&rdquo;</p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    Quelle: Roland Berger Think:Act Magazin, 2018. "Diese Leute haben diese Produkte gebaut. Aza Raskin hat den Infinite Scroll erfunden – dieses endlose Wischen durch Feeds. Er sagt, er bereut es bis heute. Tony Fadell ist einer der Väter des iPhones. Das sind keine Aktivisten von außen. Das sind die Menschen, die die Suchtmaschinen gebaut haben – und jetzt warnen sie uns."
                 </aside>
             </section>
 
@@ -832,7 +919,7 @@
             </section>
 
             <!-- Folie 12 - Sucht -->
-            <section>
+            <section data-background-image="images/kind-dunkel.jpg" data-background-opacity="0.2">
                 <p class="phase-badge">Die Realität</p>
                 <h2>Mediensucht</h2>
                 <div class="card" style="max-width: 700px; margin: 0.5em auto; border-left: 3px solid var(--amber); text-align: center;">
@@ -858,7 +945,7 @@
                     </div>
                 </div>
                 <aside class="notes">
-                    DAK-Studie zitieren. Prof. Rainer Thomasius – wer ist das? Er leitet das Deutsche Zentrum für Suchtfragen des Kindes- und Jugendalters am Universitätsklinikum Hamburg-Eppendorf (UKE). Er ist DER führende Experte für Mediensucht bei Kindern in Deutschland. Er hat die groß angelegte DAK-Längsschnittstudie wissenschaftlich geleitet – die wichtigste deutsche Studie zum Thema. Und seine Warnung 'Ein Tsunami rollt auf uns zu' bezieht sich auf die dramatisch steigenden Zahlen. 1,3 Millionen Kinder in Deutschland zeigen problematisches Nutzungsverhalten. 4,7% sind pathologisch abhängig – das sind fast 250.000 Kinder. Anstieg um 126% seit 2019 (auch Corona-Effekt). "Die WHO hat Computerspielsucht 2022 als offizielle Krankheit anerkannt – im selben Katalog wie Alkoholsucht oder Depression. Das heißt: Das ist nicht 'der zockt halt gern', sondern eine echte Diagnose, die Ärzte stellen können." Okay, das war Mediensucht. Und jetzt noch ein Thema, das gerade erst anfängt...
+                    "Erinnert ihr euch an den Anfang? Dopamin, Spielautomat-Prinzip, bewusstes Suchtdesign? HIER seht ihr die Konsequenz davon – in harten Zahlen." DAK-Studie zitieren. Prof. Rainer Thomasius – er leitet das Deutsche Zentrum für Suchtfragen des Kindes- und Jugendalters am Universitätsklinikum Hamburg-Eppendorf (UKE). DER führende Experte für Mediensucht bei Kindern in Deutschland. Er hat die DAK-Längsschnittstudie wissenschaftlich geleitet – die wichtigste deutsche Studie zum Thema. "1,3 Millionen Kinder in Deutschland zeigen problematisches Nutzungsverhalten. 4,7% sind pathologisch abhängig – das sind fast 250.000 Kinder. Anstieg um 126% seit 2019." "Die WHO hat Computerspielsucht 2022 als offizielle Krankheit anerkannt – im selben Katalog wie Alkoholsucht oder Depression. Das heißt: Das ist nicht 'der zockt halt gern', sondern eine echte Diagnose." "Und erinnert euch: Der Teil des Gehirns, der 'Stopp' sagen kann – der präfrontale Cortex – ist bei unseren Kindern noch nicht fertig entwickelt. Erst mit 25. Unsere Kinder haben Gas ohne Bremse. Und die Tech-Industrie gibt Vollgas." Okay, das war Mediensucht – der Beweis, dass das Dopamin-System, das ich am Anfang erklärt habe, reale Konsequenzen hat. Und jetzt noch ein Thema, das gerade erst anfängt...
                 </aside>
             </section>
 
@@ -870,7 +957,9 @@
                     <p style="font-size: 0.6em; margin: 0; line-height: 1.5; font-style: italic;">
                         Eine KI-generierte Oma erklärt in einem Video, dass man heutzutage nichts mehr glauben kann. <strong class="accent-amber">Das Video selbst ist der Beweis.</strong>
                     </p>
-                    <p style="font-size: 0.45em; color: var(--text-muted); margin: 0.3em 0 0;">Quelle: Instagram &ndash; täuschend echtes Deepfake-Video, 2025</p>
+                    <p style="font-size: 0.45em; margin: 0.4em 0 0;">
+                        <a href="https://www.instagram.com/p/DU3aRWnCOPn/" target="_blank" style="color: var(--amber); text-decoration: underline; font-weight: 600;">&#9654; Video abspielen (Instagram)</a>
+                    </p>
                 </div>
                 <div class="card-grid card-grid-2" style="max-width: 700px; margin: 0.8em auto;">
                     <div class="card" style="text-align: center;">
@@ -894,6 +983,40 @@
                 </aside>
             </section>
 
+            <!-- Folie 12c - Einsamkeits-Paradox (NEU) -->
+            <section>
+                <p class="phase-badge">Die Realität</p>
+                <h2 style="font-size: 1.4em;">Vernetzt und trotzdem<br><span class="accent-amber">allein.</span></h2>
+                <div class="card-grid card-grid-3" style="max-width: 750px; margin: 0.6em auto;">
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div class="stat-number accent-red" style="font-size: 1.6em;">50%</div>
+                        <div class="stat-label">der Jugendlichen fühlen<br>sich <strong>regelmäßig einsam</strong></div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
+                        <div class="stat-number accent-amber" style="font-size: 1.6em;">70%</div>
+                        <div class="stat-label"><strong>weniger</strong> persönlicher<br>Kontakt als früher</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                        <div class="stat-number accent-teal" style="font-size: 1.6em;">3&times;</div>
+                        <div class="stat-label">häufiger isoliert<br>bei <strong>Heavy Usern</strong></div>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 700px; margin: 0.6em auto; border-left: 3px solid var(--red); text-align: left;">
+                    <p style="font-size: 0.6em; margin: 0; line-height: 1.4; font-style: italic;">
+                        "Einsamkeit ist so schädlich wie <strong class="accent-red">15 Zigaretten am Tag</strong> rauchen."
+                    </p>
+                    <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.2em 0 0;">
+                        &ndash; US Surgeon General, 2023
+                    </p>
+                </div>
+                <p style="font-size: 0.55em; color: var(--text-secondary); margin-top: 0.4em;">
+                    500 Likes ersetzen <span class="accent-amber">kein einziges echtes Gespräch</span>.
+                </p>
+                <aside class="notes">
+                    "Und jetzt kommt etwas, das mir persönlich auch aufgefallen ist. Unsere Kinder glauben, sie kommunizieren mit Freunden. Aber was passiert wirklich? Sie schicken Emojis, Memes, kurze Nachrichten. Das fühlt sich an wie Verbindung – aber es bleibt leer." PAUSE. "Jeder zweite Jugendliche in Deutschland fühlt sich regelmäßig einsam. Obwohl sie den ganzen Tag 'connected' sind. Die Vodafone Stiftung nennt das 'Generation Allein'." "Und es entsteht ein Teufelskreis: Das Kind fühlt sich einsam, greift zum Handy, hofft auf Verbindung – die bleibt aus – es fühlt sich noch einsamer – und greift noch öfter zum Handy." "Der US-Gesundheitsminister hat Einsamkeit zur Epidemie erklärt. Er sagt: Einsamkeit ist so schädlich wie 15 Zigaretten am Tag rauchen. 29% höheres Risiko für Herzkrankheiten. 50% höheres Risiko für Demenz." "Und jetzt die Zahl, die mich am meisten geschockt hat: 15-24-Jährige haben 70% WENIGER persönlichen Kontakt mit Freunden als wir es hatten. 70%! Die treffen sich nicht mehr. Die texten." "Heavy User – also Kinder die besonders viel am Handy sind – sind dreimal häufiger sozial isoliert als Wenig-Nutzer." "Eine Studie der Baylor University von 2025 hat sogar gezeigt: Nicht nur passives Scrollen macht einsam – auch aktives Liken und Posten. Die bisherige Annahme 'aktive Nutzung ist okay' wurde widerlegt." "Social Media gaukelt echte Kommunikation vor. Aber 500 Likes ersetzen kein einziges echtes Gespräch am Küchentisch." PAUSE. "Okay, das war jetzt wirklich viel. Lassen wir das kurz sacken."
+                </aside>
+            </section>
+
             <!-- Folie 13 - Atempause -->
             <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #162032 100%)">
                 <h2 style="font-size: 1.5em; color: var(--text-secondary);">Ja, das sind harte Zahlen.</h2>
@@ -913,7 +1036,7 @@
             <!-- ============================================ -->
 
             <!-- Folie 13b - Kinder hacken euch -->
-            <section>
+            <section data-background-image="images/kinder-hackt.jpg" data-background-opacity="0.2">
                 <p class="phase-badge">Praktische Werkzeuge</p>
                 <h2 style="font-size: 1.4em;">Ehrliche Warnung:<br><span class="accent-amber">Die Kinder hacken euch.</span></h2>
                 <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--amber); text-align: left;">
@@ -1004,29 +1127,72 @@
             <section>
                 <p class="phase-badge">Praktische Werkzeuge</p>
                 <h2 style="font-size: 1.4em;">Technische Kindersicherung</h2>
-                <div style="max-width: 650px; margin: 0.8em auto;">
-                    <div class="card" style="border-left: 3px solid var(--green); margin-bottom: 0.5em;">
-                        <p style="font-size: 0.65em; margin: 0;">
-                            <strong class="accent-green">Google Family Link</strong> (Android)<br>
-                            <span class="text-muted" style="font-size: 0.85em;">Kostenlos, Standort + App-Limits + Webfilter &ndash; <strong>beste kostenlose L&ouml;sung</strong></span>
+                <div style="max-width: 680px; margin: 0.6em auto;">
+                    <div class="card" style="border-left: 3px solid var(--green); margin-bottom: 0.4em; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.6em; margin: 0;">
+                            <strong class="accent-green">Google Family Link</strong> (Android) &ndash; kostenlos<br>
+                            <span class="text-muted" style="font-size: 0.85em;">Standort + App-Limits + Webfilter + Schulmodus (neu 2025)</span>
                         </p>
                     </div>
-                    <div class="card" style="border-left: 3px solid var(--text-secondary); margin-bottom: 0.5em;">
-                        <p style="font-size: 0.65em; margin: 0;">
-                            <strong>Apple Bildschirmzeit</strong> (iPhone/iPad)<br>
-                            <span class="text-muted" style="font-size: 0.85em;">Kostenlos, in jedem Apple-Ger&auml;t eingebaut &ndash; App-Limits, Inhaltsbeschr&auml;nkungen</span>
+                    <div class="card" style="border-left: 3px solid var(--red); margin-bottom: 0.4em; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.6em; margin: 0;">
+                            <strong>Apple Bildschirmzeit</strong> (iPhone/iPad) &ndash; kostenlos<br>
+                            <span class="text-muted" style="font-size: 0.85em;">Eingebaut, aber <span class="accent-red">massive L&uuml;cken</span> (Stiftung Warentest 01/2025)</span>
                         </p>
                     </div>
-                    <div class="card" style="border-left: 3px solid var(--amber); margin-bottom: 0.5em;">
-                        <p style="font-size: 0.65em; margin: 0;">
-                            <strong class="accent-amber">Salfeld Kindersicherung</strong> (Android + Windows)<br>
-                            <span class="text-muted" style="font-size: 0.85em;">Testsieger (Note 2,0) &ndash; ca. 30&euro;/24 Monate &ndash; <strong>nicht f&uuml;r Apple</strong></span>
+                    <div class="card" style="border-left: 3px solid var(--amber); margin-bottom: 0.4em; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.6em; margin: 0;">
+                            <strong class="accent-amber">Salfeld Kindersicherung</strong> (Android + Windows) &ndash; 30&euro;/2J<br>
+                            <span class="text-muted" style="font-size: 0.85em;">Testsieger Stiftung Warentest, deutsch, DSGVO-konform</span>
+                        </p>
+                    </div>
+                    <div class="card" style="border-left: 3px solid var(--teal); margin-bottom: 0.4em; padding: 0.4em 0.8em;">
+                        <p style="font-size: 0.6em; margin: 0;">
+                            <strong class="accent-teal">JusProg</strong> (alle Plattformen) &ndash; <strong>kostenlos</strong><br>
+                            <span class="text-muted" style="font-size: 0.85em;">Gemeinn&uuml;tzig, keine Registrierung, vorbildlicher Datenschutz</span>
                         </p>
                     </div>
                 </div>
                 <p style="font-size: 0.5em; color: var(--text-muted);">Keine App ersetzt euch als Eltern. Aber sie helfen.</p>
                 <aside class="notes">
-                    "Keine App ersetzt euch als Eltern. Aber sie helfen." Google Family Link: Beste kostenlose Lösung für Android. Standortverfolgung, App-Limits, Webfilter, Bildschirmzeit – alles in einer App. Meine klare Empfehlung für Android-Nutzer. Apple Bildschirmzeit: Unter Einstellungen → Bildschirmzeit. Kann App-Limits, Kommunikationslimits und Inhaltsbeschränkungen setzen. Für Apple-Geräte die einzige Option, aber funktioniert ordentlich. ACHTUNG: JusProg als Webbrowser wird oft empfohlen, ist aber technisch völlig veraltet – kann ich NICHT empfehlen! Salfeld: Testsieger bei Stiftung Warentest, ca. 30 Euro für 24 Monate – also 15 Euro pro Jahr, das ist okay. Funktioniert aber NUR auf Android und Windows, NICHT auf Apple-Geräten. EHRLICHE WARNUNG: Diese Apps sind die am schlechtesten bewerteten im Store – weil KINDER sie bewerten! Wörtlich: 'Ich HASSE diese Software! Und meine Eltern hasse ich auch!' Das zeigt: Die Apps tun was sie sollen. Aber: Auch unter Medienpädagogen ist der Einsatz umstritten. Vertrauen ist genauso wichtig wie Kontrolle. BONUS-TIPP aus dem Buch: Schwarz-Weiß-Modus aktivieren! Macht das Handy sofort viel weniger attraktiv. iPhone: Einstellungen, Bedienungshilfen, Anzeige, Farbfilter, Graustufen. Android: Einstellungen, Eingabehilfe, Farbkorrektur, Graustufe. Der Buchautor hat es 2 Wochen getestet und deutlich weniger zum Handy gegriffen. Außerdem: Nicht-Stören-Modus aktivieren und maximal 2 Spiele auf dem Handy erlauben.
+                    "Keine App ersetzt euch als Eltern. Aber sie helfen." Jetzt gehen wir die Tools durch. GOOGLE FAMILY LINK: Beste kostenlose Lösung für Android. Standortverfolgung, App-Limits, Webfilter, Bildschirmzeit. Seit 2025 gibt es einen neuen Schulmodus und eine überarbeitete Oberfläche. Meine klare Empfehlung für Android-Nutzer. APPLE BILDSCHIRMZEIT: Unter Einstellungen → Bildschirmzeit. Klingt gut, ABER: Stiftung Warentest hat im Januar 2025 Apple scharf kritisiert. Wörtlich: 'Dass sich ein technisch so leistungsfähiger, finanzstarker Konzern so wenig um das Kindeswohl kümmert, ist eine Schande.' Die Probleme: 1) Über die Bedienungshilfe 'Unterstützender Zugriff' lassen sich ALLE App-Limits umgehen. 2) Apps können über die Nachrichten-App geöffnet werden, ohne dass die Bildschirmzeit zählt. 3) Inhaltsbeschränkungen greifen NUR in Apple-eigenen Apps – YouTube, Spotify etc. zeigen trotzdem alles. Mein Tipp für Apple-Eltern: Den 'Unterstützenden Zugriff' SELBST einrichten und nur erwünschte Apps zulassen. Und regelmäßig die Statistik auf dem eigenen Gerät prüfen. SALFELD: Testsieger bei Stiftung Warentest, ca. 30 Euro für 24 Monate, deutscher Anbieter, DSGVO-konform. Funktioniert auf Android und Windows, NICHT auf Apple. Hat Features wie Zeitgutscheine – das Kind kann sich zusätzliche Zeit verdienen, zum Beispiel durch Aufgaben. JUSPROG: Kostenlose Alternative vom gemeinnützigen Verein JusProg e.V. Funktioniert auf allen Plattformen. Keine Registrierung nötig, vorbildlicher Datenschutz – die App erfasst keine personenbezogenen Daten. Hat einen SafeModus für YouTube und Google. Von der FSM offiziell anerkannt. Stiftung Warentest gibt 'gut'. EHRLICHE WARNUNG: Diese Apps sind die am schlechtesten bewerteten im Store – weil KINDER sie bewerten! Wörtlich: 'Ich HASSE diese Software! Und meine Eltern hasse ich auch!' Das zeigt: Die Apps tun was sie sollen. BONUS-TIPP: Schwarz-Weiß-Modus aktivieren! Macht das Handy sofort viel weniger attraktiv. iPhone: Einstellungen → Bedienungshilfen → Anzeige → Farbfilter → Graustufen. Android: Einstellungen → Eingabehilfe → Farbkorrektur → Graustufe.
+                </aside>
+            </section>
+
+            <!-- Folie 15b - Dreischichten-Ansatz -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.3em;">Der Dreischichten-Schutz</h2>
+                <p style="font-size: 0.5em; color: var(--text-secondary); margin-bottom: 0.6em;">Drei Ebenen, die sich gegenseitig erg&auml;nzen</p>
+                <div style="max-width: 680px; margin: 0 auto;">
+                    <div class="card" style="border-left: 4px solid var(--green); margin-bottom: 0.5em; text-align: left; padding: 0.5em 1em;">
+                        <p style="font-size: 0.6em; margin: 0; line-height: 1.5;">
+                            <strong style="font-size: 1.1em;">&#x1F4F1; Schicht 1: Ger&auml;t</strong><br>
+                            <span class="text-muted">Family Link / Bildschirmzeit + Salfeld oder JusProg</span>
+                        </p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--teal); margin-bottom: 0.5em; text-align: left; padding: 0.5em 1em;">
+                        <p style="font-size: 0.6em; margin: 0; line-height: 1.5;">
+                            <strong style="font-size: 1.1em;">&#x1F310; Schicht 2: Netzwerk</strong><br>
+                            <span class="text-muted">Fritz!Box Kindersicherung + DNS-Filter (CleanBrowsing / NextDNS)</span>
+                        </p>
+                    </div>
+                    <div class="card" style="border-left: 4px solid var(--amber); margin-bottom: 0.5em; text-align: left; padding: 0.5em 1em;">
+                        <p style="font-size: 0.6em; margin: 0; line-height: 1.5;">
+                            <strong style="font-size: 1.1em;">&#x1F91D; Schicht 3: Vereinbarung</strong><br>
+                            <span class="text-muted">Mediennutzungsvertrag + regelm&auml;&szlig;ige Gespr&auml;che + Surfschein</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="max-width: 680px; margin: 0.6em auto; border: 1px solid var(--text-muted); text-align: center; padding: 0.4em 0.8em;">
+                    <p style="font-size: 0.55em; margin: 0; font-style: italic; color: var(--text-secondary);">
+                        Kindersicherung ist wie ein <strong class="accent-amber">Gel&auml;nder</strong> auf einer Br&uuml;cke:<br>
+                        Es verhindert, dass man <em>versehentlich</em> runterfa&#776;llt &ndash;<br>
+                        aber niemanden, der <em>absichtlich</em> klettern will.
+                    </p>
+                </div>
+                <aside class="notes">
+                    "Der wichtigste Punkt heute: Eine Schicht allein reicht nicht." SCHICHT 1 – GERÄT: Das ist die Basis, die wir gerade besprochen haben. Family Link oder Bildschirmzeit PLUS optional Salfeld oder JusProg obendrauf. Das sollte auf JEDEM Kinder-Smartphone aktiv sein. SCHICHT 2 – NETZWERK: Das ist die Schicht, die die meisten Eltern überspringen. Wer eine Fritz!Box hat – und das sind die meisten – kann dort unter Internet → Filter → Zugangsprofile eine Kindersicherung einrichten. Zeitsteuerung pro Gerät, Webfilter über die BPjM-Liste (indizierte Seiten), Whitelist-Modus. Das dauert 15 Minuten und wirkt auf ALLEN Geräten im WLAN – also auch Tablet, Konsole, Smart-TV. WICHTIG: Das wirkt nur zuhause! Unterwegs braucht ihr einen DNS-Filter auf dem Gerät. CleanBrowsing Family ist kostenlos: Blockiert Pornografie, erzwingt SafeSearch bei Google und YouTube. Einfach als DNS-Profil auf dem Handy einrichten. Alternativ NextDNS mit mehr Konfigurationsmöglichkeiten, aber etwas komplizierter. SCHICHT 3 – VEREINBARUNG: Das ist das Fundament. Der Mediennutzungsvertrag – kommt gleich auf der nächsten Folie. Plus regelmäßige Gespräche. Nicht einmal einrichten und vergessen, sondern mitwachsen. DIE GELÄNDER-METAPHER: "Kindersicherung ist wie ein Geländer auf einer Brücke: Es verhindert, dass man versehentlich runterfällt – aber es hindert niemanden daran, absichtlich hinüberzuklettern. Die wichtigste Kindersicherung ist und bleibt die Beziehung zu eurem Kind." Für technisch Interessierte: Auf medien-kindersicher.de gibt es einen kostenlosen Assistenten, der basierend auf Alter, Geräten und genutzten Apps eine maßgeschneiderte Schutzanleitung erstellt. Das ist ein Projekt der Landesmedienanstalten.
                 </aside>
             </section>
 
@@ -1175,18 +1341,26 @@
             <section>
                 <p class="phase-badge">Eltern als Vorbilder</p>
                 <h2 style="font-size: 1.3em;">Bevor wir über unsere Kinder reden...</h2>
-                <div class="card-grid card-grid-3" style="margin-top: 0.8em;">
-                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
-                        <div class="stat-number accent-amber" style="font-size: 1.6em;">3,4h</div>
-                        <div class="stat-label">eigene Smartphone-<br>Nutzung pro Tag</div>
+                <div style="display: flex; gap: 1.2em; align-items: center; max-width: 900px; margin: 0.6em auto;">
+                    <div style="flex: 1;">
+                        <div class="card-grid card-grid-1" style="margin: 0;">
+                            <div class="stat-card" style="border-top: 3px solid var(--amber); margin-bottom: 0.4em;">
+                                <div class="stat-number accent-amber" style="font-size: 1.6em;">3,4h</div>
+                                <div class="stat-label">eigene Smartphone-<br>Nutzung pro Tag (Ø Eltern)</div>
+                            </div>
+                            <div class="stat-card" style="border-top: 3px solid var(--red); margin-bottom: 0.4em;">
+                                <div class="stat-number accent-red" style="font-size: 1.6em;">55%</div>
+                                <div class="stat-label">ergreifen KEINE<br>Schutzmaßnahmen</div>
+                            </div>
+                            <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                                <div class="stat-number accent-teal" style="font-size: 1.6em;">34%</div>
+                                <div class="stat-label">reden regelmäßig über<br>Online-Erfahrungen</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-card" style="border-top: 3px solid var(--red);">
-                        <div class="stat-number accent-red" style="font-size: 1.6em;">55%</div>
-                        <div class="stat-label">ergreifen KEINE<br>Schutzmaßnahmen</div>
-                    </div>
-                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
-                        <div class="stat-number accent-teal" style="font-size: 1.6em;">34%</div>
-                        <div class="stat-label">reden regelmäßig über<br>Online-Erfahrungen</div>
+                    <div style="flex-shrink: 0; text-align: center;">
+                        <img src="images/bildschirmzeit.png" style="height: 300px; border-radius: 16px; border: 2px solid var(--amber);">
+                        <p style="font-size: 0.42em; color: var(--accent-amber); margin: 0.3em 0 0; font-weight: 600;">Daniels Tagesdurchschnitt: 40 min</p>
                     </div>
                 </div>
                 <aside class="notes">
@@ -1198,18 +1372,23 @@
             <section>
                 <p class="phase-badge">Eltern als Vorbilder</p>
                 <h2 style="font-size: 1.4em;">Ein Erlebnis, das mich<br><span class="accent-amber">wachger&uuml;ttelt</span> hat</h2>
-                <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--amber); text-align: left;">
-                    <p style="font-size: 0.6em; margin: 0; line-height: 1.6; font-style: italic;">
-                        "McDonald's Dillenburg. Jeder im Laden sa&szlig; beim Essen mit dem Smartphone in der Hand. Ein Papa mit seinem Sohn &ndash; <strong class="accent-red">null Kommunikation</strong>, beide nur am Handy. Angeschwiegen."
-                    </p>
-                    <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.3em 0 0;">&ndash; Eigene Erfahrung</p>
-                </div>
-                <div class="card" style="max-width: 650px; margin: 0.8em auto; text-align: center;">
-                    <p style="font-size: 0.6em; margin: 0; line-height: 1.7;">
-                        Kind will erz&auml;hlen &rarr; Eltern schauen aufs Handy &rarr;<br>
-                        Kind f&uuml;hlt sich unwichtig &rarr; Kind zieht sich zur&uuml;ck &rarr;<br>
-                        <strong class="accent-red">Kind sucht Aufmerksamkeit im Handy</strong>
-                    </p>
+                <div style="display: flex; gap: 1.2em; align-items: center; max-width: 900px; margin: 0.6em auto;">
+                    <img src="images/mcdonalds.jpg" style="width: 44%; border-radius: 10px; flex-shrink: 0; object-fit: cover;">
+                    <div style="flex: 1;">
+                        <div class="card" style="border-left: 3px solid var(--amber); text-align: left; margin-bottom: 0.6em;">
+                            <p style="font-size: 0.6em; margin: 0; line-height: 1.6; font-style: italic;">
+                                "McDonald's Dillenburg. Jeder im Laden sa&szlig; beim Essen mit dem Smartphone in der Hand. Ein Papa mit seinem Sohn &ndash; <strong class="accent-red">null Kommunikation</strong>, beide nur am Handy. Angeschwiegen."
+                            </p>
+                            <p style="font-size: 0.42em; color: var(--text-muted); margin: 0.3em 0 0;">&ndash; Eigene Erfahrung</p>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <p style="font-size: 0.6em; margin: 0; line-height: 1.7;">
+                                Kind will erz&auml;hlen &rarr; Eltern schauen aufs Handy &rarr;<br>
+                                Kind f&uuml;hlt sich unwichtig &rarr; Kind zieht sich zur&uuml;ck &rarr;<br>
+                                <strong class="accent-red">Kind sucht Aufmerksamkeit im Handy</strong>
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <aside class="notes">
                     "Ich erwische mich selbst dabei." Persönliche Geschichte erzählen: "Wir waren neulich bei McDonald's in Dillenburg. Kamen vom Schwimmbad und hatten Hunger. Im ganzen Laden – und ich übertreibe nicht – saß gefühlt JEDER beim Essen mit dem Smartphone in der Hand. Biss in den Burger, Blick aufs Handy, Biss in den Burger, Blick aufs Handy. Aber das Krasseste war ein Vater mit seinem Sohn. Die haben NULL miteinander kommuniziert. Beide nur ihr Ding in der Hand, komplett angeschwiegen. Ich weiß nicht, was die Vorgeschichte war. Aber das war so ein abschreckendes Beispiel, dass ich es meinen eigenen Kindern noch mal gesagt habe: Ich wünsche mir, dass das bei uns niemals so wird. Weil ich das SO schlimm finde." PAUSE. 35% der Kinder fühlen sich von ihren Eltern ignoriert wegen des Handys. Der Teufelskreis: Kind will etwas erzählen → Mama/Papa schaut aufs Handy → "Ja, gleich" → Kind fühlt sich unwichtig → Kind lernt: Das Handy ist wichtiger als ich → Kind zieht sich zurück → Kind sucht sich die Aufmerksamkeit, die es braucht, woanders: im eigenen Handy. "Wenn wir wollen, dass unsere Kinder mit uns reden – müssen wir das Handy weglegen, wenn sie es tun."
@@ -1335,70 +1514,26 @@
                         <span>Normale Nutzung</span>
                     </div>
                 </div>
-                <p style="font-size: 0.5em; color: var(--text-muted); margin-top: 0.6em;">
-                    Auch in der EU, Frankreich, Spanien &amp; Australien &ndash; aber: <strong class="accent-amber">Noch kein Gesetz, und Kinder hacken jede Sperre.</strong>
+                <div class="card" style="max-width: 700px; margin: 0.6em auto; text-align: left; padding: 0.6em 1em;">
+                    <p style="font-size: 0.5em; margin: 0; line-height: 1.6;">
+                        <strong class="accent-green">&#10003; Australien</strong> &ndash; Gesetz seit Dez. 2025: U16-Verbot in Kraft<br>
+                        <strong class="accent-amber">&#9203; Frankreich</strong> &ndash; U15-Verbot im Parlament verabschiedet, Senat ausstehend<br>
+                        <strong class="accent-amber">&#9203; Spanien</strong> &ndash; U16-Verbot angekündigt, braucht noch Parlamentszustimmung<br>
+                        <strong class="accent-amber">&#9203; Dänemark</strong> &ndash; U15-Verbot geplant, voraussichtlich Mitte 2026<br>
+                        <span class="text-muted">EU-Parlament fordert Mindestalter &ndash; aber noch nicht bindend</span>
+                    </p>
+                </div>
+                <p style="font-size: 0.45em; color: var(--text-muted); margin-top: 0.3em;">
+                    Aber: <strong class="accent-amber">Kinder hacken jede Sperre.</strong> Gesetze allein reichen nicht.
                 </p>
                 <aside class="notes">
                     "Es gibt auch gute Nachrichten – die Politik hat das Thema auf dem Schirm. Aber es ist noch nichts in trockenen Tüchern." CDU und SPD fordern: Social Media soll für unter 14-Jährige komplett verboten werden. Für 14- bis 16-Jährige soll es nur noch Jugendversionen geben – ohne Endlos-Scrollen, ohne algorithmische Feeds, ohne Suchtmechanismen. Die Altersverifikation soll über die EU-App EUDI-Wallet laufen. ABER: Die CSU blockiert Teile davon, das EU-Recht ist unklar, frühestens 2027 könnte ein Gesetz kommen. Eine Kommission legt im Herbst 2026 Ergebnisse vor. Das ist nicht nur in Deutschland so: Frankreich hat ein Verbot unter 15 verabschiedet, Spanien unter 16, Australien hat es bereits umgesetzt. "Reicht ein Verbot allein? Wir haben heute gesehen: Kinder hacken JEDE Sperre. Die Altersverifikation ist aktuell ein Witz – 1.1.2000 als Geburtsdatum und fertig. Ein Gesetz wäre ein wichtiger Schritt. Aber es ersetzt nicht das, was wir als Eltern tun müssen: Begleiten, Befähigen, Begrenzen. In dieser Reihenfolge."
                 </aside>
             </section>
 
-            <!-- Folie 26 - 5 Rechtsfallen -->
-            <section>
-                <p class="phase-badge">Zusammenfassung</p>
-                <h2 style="font-size: 1.3em;">5 Rechtsfallen, die Eltern kennen müssen</h2>
-                <div style="max-width: 700px; margin: 0.6em auto;">
-                    <ol class="step-list">
-                        <li>
-                            <span><strong class="accent-red">Kinderpornografie im Klassenchat</strong> &ndash; Hausdurchsuchung, auch bei unter 14-Jährigen</span>
-                        </li>
-                        <li>
-                            <span><strong class="accent-amber">Kinderfotos ohne Einwilligung</strong> &ndash; rechtswidrig (DSGVO + KunstUrhG)</span>
-                        </li>
-                        <li>
-                            <span><strong class="accent-amber">In-App-Käufe</strong> &ndash; Elternhaftung bis 33.000 Euro+</span>
-                        </li>
-                        <li>
-                            <span><strong class="accent-amber">Filesharing</strong> &ndash; Störerhaftung für den Anschlussinhaber</span>
-                        </li>
-                        <li>
-                            <span><strong class="accent-teal">WhatsApp unter 16</strong> &ndash; erfordert Einwilligung der Erziehungsberechtigten</span>
-                        </li>
-                    </ol>
-                </div>
-                <aside class="notes">
-                    Kurz zusammenfassen: 1) Ein weitergeleitetes Nacktbild reicht für eine Hausdurchsuchung – auch wenn das Kind unter 14 ist. 2) Fotos von anderen Kindern ohne Einwilligung der Eltern posten ist rechtswidrig. 3) In-App-Käufe: Eltern haften, auch wenn das Kind sie getätigt hat. Apple/Google erstatten nur in Ausnahmefällen. 4) Filesharing über den Familienanschluss: Der Anschlussinhaber haftet. 5) WhatsApp hat das Mindestalter auf 16 angehoben (DSGVO). Unter 16 braucht es die Einwilligung der Eltern. "Das soll keine Angst machen – aber ihr solltet es wissen."
-                </aside>
-            </section>
+            <!-- Folie 26 (5 Rechtsfallen) → ENTFERNT, nur noch im Handout -->
 
-            <!-- Folie 27 - 7-Tage-Fahrplan -->
-            <section>
-                <p class="phase-badge">Zusammenfassung</p>
-                <h2 style="font-size: 1.3em;">Euer 7-Tage-Fahrplan</h2>
-                <div style="max-width: 680px; margin: 0.6em auto;">
-                    <ol class="step-list">
-                        <li>
-                            <span><strong>Heute Abend:</strong> mediennutzungsvertrag.de anschauen</span>
-                        </li>
-                        <li>
-                            <span><strong>Morgen:</strong> Bildschirmzeit prüfen &ndash; eure eigene + die des Kindes</span>
-                        </li>
-                        <li>
-                            <span><strong>Diese Woche:</strong> Handygarage einrichten</span>
-                        </li>
-                        <li>
-                            <span><strong>Am Wochenende:</strong> Mit dem Kind über gemeinsame Regeln sprechen</span>
-                        </li>
-                        <li>
-                            <span><strong>Nächste Woche:</strong> Mediennutzungsvertrag gemeinsam erstellen</span>
-                        </li>
-                    </ol>
-                </div>
-                <p style="font-size: 0.5em; color: var(--text-muted); margin-top: 1em;">Kleine Schritte. Jeder einzelne zählt.</p>
-                <aside class="notes">
-                    Konkret und machbar. "Ihr müsst nicht alles auf einmal umsetzen. Aber fangt heute Abend an." 1) Heute Abend auf dem Sofa: mediennutzungsvertrag.de aufrufen und durchlesen. 2) Morgen: Schaut mal in eure eigene Bildschirmzeit – und wenn euer Kind ein Smartphone hat, auch in seine. 3) Diese Woche: Korb kaufen, Ladekabel rein, im Flur aufstellen. 4) Am Wochenende: In Ruhe mit dem Kind reden. Nicht als Strafe, sondern als gemeinsames Projekt. 5) Nächste Woche: Vertrag erstellen und beide unterschreiben.
-                </aside>
-            </section>
+            <!-- Folie 27 (7-Tage-Fahrplan) → ENTFERNT, doppelt mit 5 Sofort-Tipps -->
 
             <!-- Folie 28 - Anlaufstellen -->
             <section>
@@ -1477,7 +1612,7 @@
     </div>
 
     <!-- QR Code Generator -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script src="vendor/qrcode.min.js"></script>
     <script>
     (function() {
         var el = document.getElementById('handout-qr');
@@ -1504,8 +1639,8 @@
     </script>
 
     <!-- Reveal.js -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="vendor/revealjs/reveal.js"></script>
+    <script src="vendor/revealjs/notes.js"></script>
     <script>
         Reveal.initialize({
             // Navigation
