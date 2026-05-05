@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klassenchat-Vorlage – Eltern-Allianz Smartphone</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #f59e0b;
+    --amber-light: #fef3c7;
+    --amber-dark: #b45309;
+    --petrol: #0d9488;
+    --petrol-dark: #115e59;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --green: #10b981;
+  }
+
+  body {
+    font-family: 'Source Sans 3', 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 18px 60px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.25;
+  }
+
+  .header {
+    text-align: center;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+    border-bottom: 3px solid var(--petrol);
+  }
+  .header-orgs {
+    font-size: 11px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .header h1 span { color: var(--petrol); }
+  .header p {
+    font-size: 14px;
+    color: var(--gray-500);
+  }
+
+  .lede {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber-dark);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 26px;
+    font-size: 15px;
+  }
+  .lede strong { color: var(--amber-dark); }
+
+  h2 {
+    font-size: 18px;
+    color: var(--petrol-dark);
+    margin: 28px 0 10px;
+    border-left: 4px solid var(--amber);
+    padding-left: 10px;
+  }
+
+  .vorlage {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    color: var(--gray-800);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--petrol);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: inherit;
+  }
+  .copy-btn:hover { background: var(--petrol-dark); }
+  .copy-btn.copied { background: var(--green); }
+
+  .tip {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .tip strong { color: var(--petrol-dark); }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--gray-200);
+    font-size: 12px;
+    color: var(--gray-500);
+    text-align: center;
+  }
+  .footer a {
+    color: var(--petrol);
+    text-decoration: none;
+  }
+  .footer a:hover { text-decoration: underline; }
+
+  .toggle-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 14px 0 12px;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 10px 12px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-700);
+  }
+  .tab-btn.active {
+    background: var(--petrol);
+    color: #fff;
+    border-color: var(--petrol);
+  }
+  .vorlage-section { display: none; }
+  .vorlage-section.active { display: block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-orgs">Das Projekt e.V. &middot; Eltern-Workshop</div>
+  <h1>Wenn <span>"alle anderen es schon haben"</span></h1>
+  <p>Klassenchat-Vorlage für die Eltern-Allianz</p>
+</div>
+
+<div class="lede">
+  <strong>Die Idee:</strong> Du allein kannst dem Druck deines Kindes nicht standhalten ("Alle haben Snapchat / TikTok / Instagram, ich werde ausgeschlossen"). Aber wenn du <strong>3-4 andere Familien findest</strong>, ist dein Kind nicht allein — und der soziale Druck löst sich auf. Klassen-WhatsApp ist die schnellste Sammelstelle.
+</div>
+
+<h2>So benutzt du die Vorlage</h2>
+<ol style="padding-left: 22px; font-size: 14.5px;">
+  <li>Suche dir eine der zwei Vorlagen unten aus</li>
+  <li>Kopiere sie mit dem Button</li>
+  <li>Schick sie in euer Klassen-WhatsApp / Eltern-Chat / Schul-Chat</li>
+  <li>Sammle die Daumen-hoch / Daumen-runter</li>
+  <li>Vernetze die "Ja-Familien" untereinander</li>
+</ol>
+
+<div class="toggle-tabs">
+  <button class="tab-btn active" data-target="v1">Variante 1 — gemäßigt</button>
+  <button class="tab-btn" data-target="v2">Variante 2 — direkt</button>
+</div>
+
+<div class="vorlage-section active" id="v1">
+  <div class="vorlage" id="vorlage-1">Hallo zusammen,
+
+ich brauche kurz euren Input.
+
+Mein Kind sagt: "Alle anderen haben Snapchat / TikTok / Instagram — ich werde ausgeschlossen, wenn ich's nicht habe."
+
+Mir wäre lieb, das hier rauszuziehen, bis die Kinder älter sind (Empfehlung Kinderärzte / Studien: nicht vor 14).
+
+Frage: Wer von euch wäre dabei, die Entscheidung gemeinsam hinauszuschieben — sagen wir bis Ende Klasse 7 / Beginn Klasse 8?
+
+Wenn 3-4 Familien mitziehen, sind unsere Kinder nicht allein, und wir nehmen den sozialen Druck raus.
+
+Kein Druck, keine Wertung — meldet euch einfach mit Daumen hoch / Daumen runter. Ich sammle.
+
+Danke!</div>
+  <button class="copy-btn" data-source="vorlage-1">📋 Vorlage 1 kopieren</button>
+</div>
+
+<div class="vorlage-section" id="v2">
+  <div class="vorlage" id="vorlage-2">Hand aufs Herz: Wer fühlt sich beim Thema Snapchat / TikTok / Smartphone gerade so wie ich? — alleine im Kampf, weil "alle anderen es schon haben".
+
+Vorschlag: 5 Min Telefonat / Kaffee, wir setzen uns mit 3-4 Familien zusammen und einigen uns auf eine gemeinsame Linie. Dann sind unsere Kinder nicht die "letzten ohne".
+
+Wer wäre dabei?</div>
+  <button class="copy-btn" data-source="vorlage-2">📋 Vorlage 2 kopieren</button>
+</div>
+
+<h2>Was tun, wenn die Reaktion gemischt ist</h2>
+
+<div class="tip">
+  <strong>Wenn nur 1-2 Eltern mitziehen:</strong> Trotzdem Gold. Dann hat dein Kind <strong>mindestens einen Verbündeten</strong>. Stell die Verbindung aktiv her: <em>"Schau, der Lukas / die Mia ist auch noch ohne Snapchat — verabredet euch."</em> So entkoppelst du die soziale Bindung von der App.
+</div>
+
+<div class="tip">
+  <strong>Wenn niemand mitzieht:</strong> Dann weißt du wenigstens, dass die anderen sich nicht trauen oder schon kapituliert haben — beides nicht dein Problem. Bleib bei deiner Linie. Aber: du hast es versucht, nicht im stillen Verzweifelt-Modus. Das ist auch ein Lehrbeispiel fürs Kind.
+</div>
+
+<div class="tip">
+  <strong>Wenn der Chor zustimmt:</strong> Sammle die Familien in einer eigenen kleinen Gruppe. Vereinbart ein konkretes Datum ("ab Mitte 7. Klasse reden wir nochmal"), damit es nicht im Sand verläuft.
+</div>
+
+<h2>Warum das funktioniert</h2>
+<ul style="padding-left: 22px; font-size: 14.5px;">
+  <li><strong>Es ist kein Verbot, sondern ein Angebot zur Allianz</strong> — andere Eltern fühlen sich nicht angegriffen</li>
+  <li><strong>Konkrete Frist</strong> ("bis Ende Klasse 7") gibt Halt, statt vagem "später"</li>
+  <li><strong>Niedrige Hürde:</strong> Daumen hoch / runter, kein langes Statement nötig</li>
+  <li>Die <strong>"stillen Eltern"</strong> — die heimlich auch dachten <em>"ich will nicht, aber ich kämpfe alleine"</em> — outen sich. In der Praxis bekommen 60-80 % der Kinder erst mit 12-13 ein Smartphone. Du bist nicht so allein wie es scheint.</li>
+</ul>
+
+<div class="footer">
+  Aus dem Eltern-Workshop „Das erste Smartphone" &middot; <a href="https://danielgaiswinkler.github.io/eltern-workshop/">Zur Übersicht</a><br>
+  Daniel Gaiswinkler &middot; Das Projekt e.V.
+</div>
+
+<script>
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.vorlage-section').forEach(function(s){ s.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.target).classList.add('active');
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var text = document.getElementById(btn.dataset.source).innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        var orig = btn.innerText;
+        btn.innerText = '✓ Kopiert!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 2200);
+      }).catch(function() {
+        // Fallback fuer aeltere Browser
+        var range = document.createRange();
+        range.selectNode(document.getElementById(btn.dataset.source));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        btn.innerText = '✓ Kopiert!';
+        btn.classList.add('copied');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

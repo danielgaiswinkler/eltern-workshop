@@ -1684,6 +1684,45 @@
                 </aside>
             </section>
 
+            <!-- Folie 19b - Klassenchat-Vorlage / Eltern-Allianz -->
+            <section>
+                <p class="phase-badge">Praktische Werkzeuge</p>
+                <h2 style="font-size: 1.3em;">Wenn <span class="accent-amber">"alle anderen es schon haben"</span></h2>
+                <p style="font-size: 0.55em; color: var(--text-secondary); margin-bottom: 0.6em; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Du kämpfst nicht allein. Findet euch <strong>3-4 Familien</strong> in der Klasse, dann ist euer Kind auch nicht allein.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr auto; gap: 1.4em; align-items: center; max-width: 780px; margin: 0.4em auto;">
+                    <div style="text-align: left;">
+                        <p style="font-size: 0.5em; line-height: 1.5; margin-bottom: 0.4em; color: var(--text-secondary);">
+                            <strong class="accent-amber">Fertige WhatsApp-Vorlage</strong> für euren Klassenchat:
+                        </p>
+                        <ul class="tip-list" style="font-size: 0.5em;">
+                            <li><span class="tip-icon" style="color: var(--green);">&#9679;</span><span>Vorlage zum Kopieren <strong>(2 Varianten)</strong></span></li>
+                            <li><span class="tip-icon" style="color: var(--green);">&#9679;</span><span>Tipps, was tun bei <strong>1-2 / niemand / alle</strong> mitziehen</span></li>
+                            <li><span class="tip-icon" style="color: var(--green);">&#9679;</span><span>Niedrige Hürde: <strong>Daumen hoch / runter</strong> reicht</span></li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <div id="klassenchat-qr" class="qr-placeholder" style="display:flex;align-items:center;justify-content:center;background:#fff;padding:8px;border-radius:8px;"></div>
+                        <p style="font-size: 0.4em; color: var(--text-muted); margin-top: 0.4em;">QR scannen<br>oder: <strong>kurzelinks/klassenchat</strong></p>
+                    </div>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Reagiert auf die häufigste Eltern-Frage: "Mein Kind sagt: alle anderen haben es schon"</em><br><br>
+                    <strong>"Eine der häufigsten Fragen, die ich bekomme: 'Mein Kind sagt, alle anderen haben Snapchat / TikTok. Wenn ich nein sage, ist es ausgeschlossen. Wenn ich ja sage, weiß ich aus eurem Vortrag, dass es Schaden nimmt. Was tu ich?'"</strong><br><br>
+                    <strong>Die Antwort: Du allein kannst dem nicht standhalten — aber du musst es auch nicht.</strong>
+                    <ul>
+                        <li>Findet 3-4 Familien in der Klasse, die mitziehen</li>
+                        <li>Dann ist euer Kind nicht das "letzte ohne" — und der Druck löst sich auf</li>
+                        <li>In der Praxis: <strong>60-80 % der Kinder bekommen erst mit 12-13 ein Smartphone</strong>. Ihr seid nicht so allein wie es sich anfühlt</li>
+                        <li>Die "stillen Eltern" — die heimlich auch dachten "ich will nicht, aber ich kämpf allein" — outen sich</li>
+                    </ul>
+                    <br>
+                    <strong>"Ich hab euch zwei Vorlagen mitgebracht. Eine gemäßigte und eine direkte. QR-Code scannen, kopieren, in euer Klassen-WhatsApp schicken. Daumen hoch / Daumen runter sammeln. Fertig."</strong><br><br>
+                    <em style="color:#f59e0b">▶ QR-Code zeigen, kurz Zeit zum Scannen lassen</em>
+                </aside>
+            </section>
+
             <!-- Folie 20 - Positive Nutzung -->
             <section>
                 <p class="phase-badge">Praktische Werkzeuge</p>
@@ -2071,17 +2110,18 @@
     <!-- QR Code Generator -->
     <script src="vendor/qrcode.min.js"></script>
     <script>
-    (function() {
-        var el = document.getElementById('handout-qr');
+    function renderQR(elementId, url, pixelSize) {
+        var el = document.getElementById(elementId);
         if (!el) return;
         var qr = qrcode(0, 'M');
-        qr.addData('https://danielgaiswinkler.github.io/eltern-workshop/links.html');
+        qr.addData(url);
         qr.make();
         var count = qr.getModuleCount();
         var cell = 2;
         var margin = 2;
         var size = count * cell + margin * 2;
-        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+size+' '+size+'" width="200" height="200">';
+        var pixel = pixelSize || 200;
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+size+' '+size+'" width="'+pixel+'" height="'+pixel+'">';
         svg += '<rect width="'+size+'" height="'+size+'" fill="#fff"/>';
         for (var r = 0; r < count; r++) {
             for (var c = 0; c < count; c++) {
@@ -2092,7 +2132,9 @@
         }
         svg += '</svg>';
         el.innerHTML = svg;
-    })();
+    }
+    renderQR('handout-qr', 'https://danielgaiswinkler.github.io/eltern-workshop/links.html', 200);
+    renderQR('klassenchat-qr', 'https://danielgaiswinkler.github.io/eltern-workshop/klassenchat-vorlage.html', 180);
     </script>
 
     <!-- Reveal.js -->
