@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein erstes Smartphone – Real Talk</title>
+
+    <!-- Reveal.js CSS (lokal) -->
+    <link rel="stylesheet" href="vendor/revealjs/reveal.css">
+    <link rel="stylesheet" href="vendor/revealjs/black.css" id="theme">
+
+    <!-- Google Fonts (lokal) -->
+    <link rel="stylesheet" href="vendor/fonts/fonts.css">
+
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: rgba(255,255,255,0.05);
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --teal: #0d9488;
+            --green: #10b981;
+            --red: #ef4444;
+            --yellow: #eab308;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        .reveal-viewport {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+        }
+
+        .reveal {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 32px;
+            color: var(--text-primary);
+        }
+        .reveal .slides section {
+            text-align: center !important;
+        }
+        .reveal .slides section > h2,
+        .reveal .slides section > h3,
+        .reveal .slides section > p,
+        .reveal .slides section > div {
+            text-align: center !important;
+        }
+        .reveal .slides .big-quote {
+            text-align: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: none;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.6em;
+            text-shadow: none;
+        }
+
+        .reveal h1 {
+            font-size: 2.8em;
+            font-weight: 900;
+        }
+
+        .reveal h2 {
+            font-size: 1.8em;
+            font-weight: 800;
+        }
+
+        .reveal h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .reveal p {
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal .progress {
+            color: var(--amber);
+            height: 4px;
+        }
+
+        .reveal .controls {
+            color: var(--amber);
+        }
+
+        .reveal .slide-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            background: transparent;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .accent-amber { color: var(--amber); }
+        .accent-teal { color: var(--teal); }
+        .accent-green { color: var(--green); }
+        .accent-red { color: var(--red); }
+        .text-muted { color: var(--text-secondary); }
+        .text-small { font-size: 0.6em; color: var(--text-secondary); }
+        .text-xs { font-size: 0.5em; color: var(--text-muted); }
+
+        .big-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 4em;
+            line-height: 1;
+            margin: 0.2em 0;
+        }
+
+        .big-quote {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.4em;
+            line-height: 1.3;
+            max-width: 800px;
+            margin: 0.5em auto;
+            text-align: center;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.2em 1.5em;
+            margin: 0.5em 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 0.8em;
+            margin-top: 0.8em;
+        }
+
+        .card-grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .card-grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1em 1.2em;
+            text-align: center;
+        }
+
+        .stat-card .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 2.2em;
+            line-height: 1;
+            margin-bottom: 0.15em;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.55em;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
+
+        .survey-question {
+            font-size: 0.8em;
+            padding: 0.6em 1em;
+            margin: 0.5em 0;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border-left: 3px solid var(--amber);
+            text-align: left;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            counter-reset: step;
+            text-align: left;
+        }
+
+        .step-list li {
+            counter-increment: step;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6em;
+            margin-bottom: 0.6em;
+            font-size: 0.75em;
+            line-height: 1.4;
+        }
+
+        .step-list li::before {
+            content: counter(step);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.2em;
+            color: var(--amber);
+            min-width: 1.5em;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .tip-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tip-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            margin-bottom: 0.5em;
+            font-size: 0.75em;
+            padding: 0.5em 0.8em;
+            background: var(--bg-card);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .tip-icon {
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.15em 0.6em;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .badge-red {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .badge-amber {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+        }
+
+        .badge-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        .principle-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1em 1.2em;
+            text-align: center;
+            border-top: 3px solid;
+        }
+
+        .principle-card h3 {
+            font-size: 1em;
+            margin-bottom: 0.3em;
+        }
+
+        .principle-card p {
+            font-size: 0.55em;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 0.45em;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--amber);
+            border-radius: 2px;
+            margin: 0.5em auto;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.45em;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.3em;
+        }
+
+        .check-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            padding: 0.6em 1em;
+            margin-bottom: 0.5em;
+            background: var(--bg-card);
+            border-radius: 12px;
+            font-size: 0.75em;
+            text-align: left;
+            border-left: 3px solid var(--amber);
+        }
+
+        .check-icon {
+            font-size: 1.4em;
+            flex-shrink: 0;
+        }
+
+        .bonus-banner {
+            display: inline-block;
+            background: rgba(13, 148, 136, 0.15);
+            border: 1px dashed rgba(13, 148, 136, 0.5);
+            color: var(--teal);
+            padding: 0.3em 1em;
+            border-radius: 20px;
+            font-size: 0.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5em;
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.35em;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .reveal h1 { font-size: 2em; }
+            .reveal h2 { font-size: 1.4em; }
+            .big-number { font-size: 3em; }
+            .card-grid-2, .card-grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fullscreen Button -->
+    <button id="fs-btn" onclick="toggleFS()" title="Vollbild ein/aus" style="position:fixed;top:14px;right:14px;z-index:9999;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);border-radius:8px;padding:7px 13px;cursor:pointer;font-size:16px;backdrop-filter:blur(6px);transition:all 0.2s;line-height:1;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">⛶</button>
+    <script>
+        function toggleFS() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        document.addEventListener('fullscreenchange', function() {
+            var btn = document.getElementById('fs-btn');
+            btn.textContent = document.fullscreenElement ? '✕' : '⛶';
+        });
+    </script>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ============================================ -->
+            <!-- PHASE 1: Eisbrecher (5 Min)                  -->
+            <!-- ============================================ -->
+
+            <!-- Folie 1 - Titel -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%)">
+                <div style="margin-top: -0.5em;">
+                    <p style="font-size: 0.5em; color: var(--amber); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5em;">Schul-Vortrag &middot; 4./5./6. Klasse</p>
+                    <h1 style="margin-bottom: 0.1em;">Dein erstes<br>Smartphone</h1>
+                    <p style="font-size: 0.8em; color: var(--text-secondary); margin-bottom: 1.5em;">Real Talk &ndash; ohne Gequatsche</p>
+                    <div class="divider"></div>
+                    <p style="font-size: 0.45em; color: var(--text-muted); margin-top: 1em;">
+                        Daniel Gaiswinkler&ensp;|&ensp;Das Projekt e.V. + Eschenburgschule
+                    </p>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Locker reinkommen, Klasse begrüßen</em><br><br>
+                    <ul>
+                        <li><strong>"Hi! Ich bin der Daniel."</strong></li>
+                        <li>Kurze Pause, in die Augen schauen, lächeln.</li>
+                        <li><strong>"45 Minuten. Kein Schul-Stoff. Echtes Reden über Smartphones."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Wenn jemand quatscht oder Handy zückt: nicht streng werden, lieber locker</em>: "Hey, ihr werdet das gleich brauchen — leg's mal eben weg."</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 2 - Daniels Anker: Vater von 3, ich kenn das -->
+            <section>
+                <p class="phase-badge">Eisbrecher</p>
+                <h2>Ich bin auch nur ein Vater.</h2>
+                <div class="divider" style="margin-bottom: 0.8em;"></div>
+                <p style="font-size: 0.75em; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Drei Kinder. Tilda, Theo, Karla.<br>
+                    <span class="accent-amber">Und ich bin selbst zu oft am Handy.</span>
+                </p>
+                <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.65em; margin: 0; line-height: 1.5; font-style: italic;">
+                        &bdquo;Ich erwische mich dauernd dabei. Beim Frühstück. Auf der Couch. Wenn meine Kinder spielen wollen.<br>
+                        Ich kenn das Gefühl. <strong class="accent-amber">Ich bin keiner, der von oben runter redet.</strong>&ldquo;
+                    </p>
+                </div>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-top: 0.8em;">
+                    Und genau deshalb sollten wir kurz drüber reden. <span class="accent-amber">Ehrlich.</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Ehrlich, nicht belehrend. Auf Augenhöhe.</em><br><br>
+                    <ul>
+                        <li><strong>"Ich bin Vater von drei Kindern. Tilda ist 9 — die geht selbst hier in die Schule."</strong></li>
+                        <li>Pause. Wirken lassen. Manche kennen Tilda vielleicht.</li>
+                        <li><strong>"Ich bin selbst sehr oft am Handy. Beim Frühstück. Auf der Couch. Auch wenn die Kinder mit mir spielen wollen."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Ich erzähl euch das, damit ihr wisst: Ich bin nicht hier, um euch zu sagen, dass ihr alles falsch macht. Ich kenn das Gefühl."</strong></li>
+                        <li><strong>"Aber ich hab was gelernt, was ich euch erzählen will. Weil's wichtig ist."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 3 - Hand-hoch-Umfrage -->
+            <section>
+                <p class="phase-badge">Eisbrecher</p>
+                <h2>Kurze Umfrage</h2>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-bottom: 0.8em;">Hand hoch &ndash; ehrlich!</p>
+                <div class="survey-question">
+                    Wer von euch hat <strong class="accent-amber">schon</strong> ein eigenes Smartphone?
+                </div>
+                <div class="survey-question">
+                    Wer wünscht sich <strong class="accent-teal">dringend</strong> eins?
+                </div>
+                <div class="survey-question">
+                    Wer ist <strong class="accent-green">jeden Tag</strong> über zwei Stunden am Handy oder Tablet?
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Hand-Umfrage. Locker. Nichts werten.</em><br><br>
+                    <ul>
+                        <li><strong>"Ich frag euch jetzt drei Sachen. Hand hoch &mdash; ehrlich. Keiner wird ausgelacht."</strong></li>
+                        <li>Frage 1 vorlesen, Hände zählen, kurz kommentieren: <strong>"Okay, schon einige. Cool."</strong></li>
+                        <li>Frage 2 vorlesen. Bei vielen: <strong>"Hab ich mir gedacht. Bei mir war's früher genauso."</strong></li>
+                        <li>Frage 3 vorlesen. Hier wird's still. <strong>"Ehrlich Hand hoch. Bei mir wären's übrigens auch viel zu viele."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Wenn fast alle Hände bei Frage 3 oben: "Ihr seid nicht allein. Das ist normal &mdash; und genau darüber reden wir gleich."</em></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 2: Was passiert in deinem Kopf? (8 Min) -->
+            <!-- ============================================ -->
+
+            <!-- Folie 4 - Schokolade-Vergleich -->
+            <section>
+                <p class="phase-badge">Phase 2 &middot; Im Kopf</p>
+                <h2 style="font-size: 1.5em;">Dein Gehirn liebt Likes<br><span class="accent-amber">wie Schokolade.</span></h2>
+                <div class="card" style="max-width: 700px; margin: 0.8em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        Jedes <strong class="accent-amber">Like</strong>. Jede Nachricht. Jeder Loot.<br>
+                        Dein Gehirn macht: <em>&bdquo;Oh ja, mehr davon!&ldquo;</em>
+                    </p>
+                </div>
+                <p style="font-size: 0.65em; color: var(--text-secondary); margin-top: 0.8em;">
+                    Genau wie bei Schokolade.<br>
+                    <span class="accent-red">Nur dass Schokolade irgendwann alle ist.</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Bildhaft erzählen. Mit Händen, Stimme.</em><br><br>
+                    <ul>
+                        <li><strong>"Stellt euch vor, ihr esst Schokolade. Was sagt euer Gehirn?"</strong></li>
+                        <li>Pause. Erste Antworten kommen. <em>"Yummi, mehr!"</em></li>
+                        <li><strong>"Genau. Euer Gehirn sagt: oh ja, geil, mach weiter. Das ist ein Stoff, der heißt Dopamin."</strong></li>
+                        <li><strong>"Und genau das macht euer Gehirn auch beim Handy. Bei jedem Like. Bei jedem neuen TikTok. Bei jedem Brawl-Stars-Loot."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Aber: Schokolade ist irgendwann leer. Das Handy nicht. Das hört nie auf."</strong></li>
+                        <li><strong>"Deshalb ist es so schwer aufzuhören &mdash; und das ist nicht eure Schuld."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 5 - Spielautomat-Vergleich -->
+            <section>
+                <p class="phase-badge">Phase 2 &middot; Im Kopf</p>
+                <h2 style="font-size: 1.5em;">Dein Handy ist<br><span class="accent-red">ein Spielautomat.</span></h2>
+                <div class="card-grid card-grid-3" style="max-width: 800px; margin: 0.6em auto;">
+                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
+                        <div style="font-size: 2.2em; line-height: 1;">🎰</div>
+                        <div class="stat-label" style="margin-top: 0.4em;"><strong>Münze rein</strong><br>= App öffnen</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div style="font-size: 2.2em; line-height: 1;">❓</div>
+                        <div class="stat-label" style="margin-top: 0.4em;"><strong>Vielleicht was Cooles?</strong><br>Vielleicht nichts.</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--green);">
+                        <div style="font-size: 2.2em; line-height: 1;">🔄</div>
+                        <div class="stat-label" style="margin-top: 0.4em;"><strong>Nochmal!</strong><br>Vielleicht klappt's jetzt</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.65em; color: var(--text-secondary); margin-top: 0.8em;">
+                    Mal kommt was Mega. Mal nichts.<br>
+                    <span class="accent-red">Genau das macht Spielautomaten so süchtig.</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Spielautomat mit Händen vormachen &mdash; Hebel ziehen</em><br><br>
+                    <ul>
+                        <li><strong>"Wer kennt einen Spielautomaten? Aus 'ner Spielhalle oder im Film?"</strong></li>
+                        <li>Hände abwarten. <strong>"Münze rein. Hebel ziehen. Was passiert?"</strong> &mdash; Antworten sammeln: meistens nichts. Manchmal Jackpot.</li>
+                        <li><strong>"Genau das macht das Handy. Du machst TikTok auf &mdash; meistens langweilig. Manchmal aber: BAM, ein richtig geiles Video."</strong></li>
+                        <li><strong>"Und dieses 'manchmal' &mdash; das ist der Trick. Dein Gehirn denkt: nochmal probieren! Vielleicht klappt's jetzt!"</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Bei Brawl Stars genauso. Megabox auf &mdash; meistens Müll. Manchmal Legendary. Nochmal! Nochmal!"</strong></li>
+                        <li><strong>"Das hat einen Namen: Spielautomaten-Trick. Und die Leute, die diese Apps machen, wissen das ganz genau."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 6 - Kernbotschaft Phase 2 -->
+            <section>
+                <p class="phase-badge">Phase 2 &middot; Im Kopf</p>
+                <h2 style="font-size: 1.6em;">Die Apps sind <span class="accent-amber">kein Zufall.</span></h2>
+                <div class="big-quote" style="font-size: 1.1em; max-width: 720px; color: var(--text-secondary); margin-top: 0.5em;">
+                    Sie wurden <strong class="accent-amber">extra so gebaut</strong>,<br>
+                    dass du <strong class="accent-red">nicht aufhören kannst.</strong>
+                </div>
+                <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--teal); text-align: left;">
+                    <p style="font-size: 0.65em; margin: 0; line-height: 1.5;">
+                        Und das Beste: <strong class="accent-teal">Wenn du das einmal weißt &mdash; siehst du den Trick.</strong>
+                    </p>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Klare, ruhige Stimme. Wichtigster Satz der Phase.</em><br><br>
+                    <ul>
+                        <li><strong>"Was ich euch hier gerade erzähle, ist kein Zufall. Das ist kein Pech. Das ist kein 'die Kinder sind schwach'."</strong></li>
+                        <li><strong>"In den großen Firmen sitzen Leute, die richtig viel Geld dafür kriegen, dass die Apps bei euch nicht aufhören."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Aber: Wenn ihr den Trick einmal kennt &mdash; dann seht ihr ihn überall. Und dann werdet ihr stärker."</strong></li>
+                        <li><strong>"Und genau das machen wir jetzt. Wir gucken uns die drei größten Tricks an."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 3: Die Tricks der Apps (10 Min)        -->
+            <!-- ============================================ -->
+
+            <!-- Folie 7 - Trick 1: Lootboxen -->
+            <section>
+                <p class="phase-badge">Phase 3 &middot; Trick 1</p>
+                <h2 style="font-size: 1.5em;">Trick 1: <span class="accent-red">Loot-Boxen</span></h2>
+                <div class="card" style="max-width: 720px; margin: 0.6em auto; border-left: 3px solid var(--red); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        Brawl Stars, Fortnite, Roblox.<br>
+                        Du kaufst eine Box. Du <strong>weißt nicht</strong>, was drin ist.<br>
+                        <span class="accent-red">Vielleicht was Mega. Meistens Müll.</span>
+                    </p>
+                </div>
+                <div class="card" style="max-width: 650px; margin: 0.8em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.6em; margin: 0; line-height: 1.4; font-style: italic;">
+                        &bdquo;Auf YouTube zeigen euch Leute, wie sie 100 Megaboxen aufmachen.<br>
+                        Damit ihr denkt: das schaff ich auch.<br>
+                        Die haben dafür <strong class="accent-red">Tausende Euro</strong> ausgegeben.&ldquo;
+                    </p>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Wer kennt Brawl Stars? Hand-Frage einbauen!</em><br><br>
+                    <ul>
+                        <li><strong>"Wer von euch kennt Brawl Stars? Hand hoch!"</strong></li>
+                        <li>Wenn viele: <strong>"Wer hat schon mal eine Megabox aufgemacht?"</strong> &mdash; Hände zählen.</li>
+                        <li><strong>"Was passiert, wenn ihr eine Megabox aufmacht?"</strong> &mdash; Antworten sammeln. Meistens: nix Gutes drin.</li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Genau. Meistens Müll. Aber manchmal &mdash; ein Legendary. Und dann denkst du: nochmal!"</strong></li>
+                        <li><strong>"Auf YouTube gibt's Videos, da öffnen Leute hundert Megaboxen am Stück. Ich hab eins davon mal angeguckt &mdash; der Typ hat dafür ein paar Tausend Euro ausgegeben."</strong></li>
+                        <li><strong>"Und ihr denkt vielleicht: Wow, krass, will ich auch! Aber: Der wird dafür bezahlt. Das ist sein Job. Bei euch wird's nicht so funktionieren."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Wichtig: keine Schimpf-Predigt. Sachlich erklären.</em></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 8 - Trick 2: Infinite Scroll -->
+            <section>
+                <p class="phase-badge">Phase 3 &middot; Trick 2</p>
+                <h2 style="font-size: 1.5em;">Trick 2: <span class="accent-amber">Endloses Scrollen</span></h2>
+                <div class="card" style="max-width: 720px; margin: 0.6em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        TikTok. YouTube Shorts. Instagram Reels.<br>
+                        Du wischst hoch. <strong>Es kommt nie ein Ende.</strong><br>
+                        <span class="accent-amber">&bdquo;Nur noch ein Video.&ldquo;</span>
+                    </p>
+                </div>
+                <p style="font-size: 0.65em; color: var(--text-secondary); margin-top: 0.6em;">
+                    Plötzlich sind <strong class="accent-red">zwei Stunden weg.</strong><br>
+                    Und du weißt nicht mal mehr, was du eigentlich gesehen hast.
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Wisch-Bewegung mit dem Finger machen!</em><br><br>
+                    <ul>
+                        <li><strong>"Wer kennt TikTok? YouTube Shorts? Instagram Reels?"</strong> Fast alle Hände.</li>
+                        <li><strong>"Macht mal den Wisch nach oben mit der Hand. Genau! Und dann kommt was?"</strong> Antwort: nächstes Video.</li>
+                        <li><strong>"Und dann?"</strong> Antwort: nochmal Wischen. <strong>"Und dann?"</strong> Lacher.</li>
+                        <li><strong>"Es hört nie auf. Das ist Absicht. Es gibt KEINEN 'Ende-Knopf'. Weil die Firma will, dass ihr drin bleibt."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Ich hab das selbst &mdash; ich nehm das Handy für 'kurz Mail checken'. Und schwupps, eine halbe Stunde TikTok weg."</strong></li>
+                        <li><strong>"Bei euch passiert das auch. Und nochmal: das ist kein Versagen. Das ist Design."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 9 - Trick 3: FOMO + Notifications -->
+            <section>
+                <p class="phase-badge">Phase 3 &middot; Trick 3</p>
+                <h2 style="font-size: 1.5em;">Trick 3: <span class="accent-teal">&bdquo;Du verpasst was!&ldquo;</span></h2>
+                <div class="card" style="max-width: 720px; margin: 0.6em auto; border-left: 3px solid var(--teal); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        <strong>Bing!</strong> &mdash; Mia hat dir geschrieben.<br>
+                        <strong>Bing!</strong> &mdash; Drei Freunde sind in Roblox.<br>
+                        <strong>Bing!</strong> &mdash; Snap-Streak läuft ab!
+                    </p>
+                </div>
+                <p style="font-size: 0.65em; color: var(--text-secondary); margin-top: 0.6em;">
+                    Dein Handy zieht dich zurück.<br>
+                    <span class="accent-teal">Damit du Angst hast, was zu verpassen.</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Bing-Geräusch nachmachen mit der Stimme!</em><br><br>
+                    <ul>
+                        <li><strong>"Wer kennt das: Ihr macht was, Hausaufgaben oder draußen spielen &mdash; und dann: BING! Eine Nachricht!"</strong></li>
+                        <li><strong>"Was macht ihr dann?"</strong> Antwort: gucken.</li>
+                        <li><strong>"Genau. Und schon seid ihr wieder drin. Diese 'Bings' nennt man Notifications. Push-Nachrichten."</strong></li>
+                        <li><strong>"Bei Snapchat heißt das auch Snap-Streak: wenn ihr nicht jeden Tag schreibt, geht der kaputt. Ist das fies oder nicht?"</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Das hat einen Namen auf Englisch: FOMO &mdash; Fear of Missing Out. Angst, was zu verpassen."</strong></li>
+                        <li><strong>"Eure Freunde sind angeblich gerade alle online. Wenn ihr nicht da seid, verpasst ihr was. Glaubt ihr."</strong></li>
+                        <li><strong>"In Wahrheit ist meistens nichts los. Aber das Handy macht euch unruhig &mdash; damit ihr wieder reingeht."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 10 - Mini-Quiz -->
+            <section>
+                <p class="phase-badge">Mini-Quiz</p>
+                <h2 style="font-size: 1.5em;">Welcher Trick ist das?</h2>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-bottom: 0.8em;">Daumen hoch wenn ihr's wisst!</p>
+                <div class="card-grid card-grid-3" style="max-width: 850px; margin: 0.6em auto;">
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div style="font-size: 2em; line-height: 1;">🎁</div>
+                        <div class="stat-label" style="margin-top: 0.5em; font-size: 0.6em;"><strong>&bdquo;Mega-Box öffnen<br>für 5 Edelsteine!&ldquo;</strong></div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--amber);">
+                        <div style="font-size: 2em; line-height: 1;">📱</div>
+                        <div class="stat-label" style="margin-top: 0.5em; font-size: 0.6em;"><strong>Du wischst Reels<br>von 16 Uhr bis 18 Uhr</strong></div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--teal);">
+                        <div style="font-size: 2em; line-height: 1;">🔔</div>
+                        <div class="stat-label" style="margin-top: 0.5em; font-size: 0.6em;"><strong>&bdquo;3 Freunde sind<br>jetzt online!&ldquo;</strong></div>
+                    </div>
+                </div>
+                <p style="font-size: 0.55em; color: var(--text-secondary); margin-top: 0.8em;">
+                    Box = <span class="accent-red">Loot-Trick</span> &middot; Wischen = <span class="accent-amber">Endlos-Trick</span> &middot; Bing = <span class="accent-teal">FOMO-Trick</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Klasse mitmachen lassen! Jeder Trick einzeln.</em><br><br>
+                    <ul>
+                        <li><strong>"Okay &mdash; Quiz! Ich zeig euch drei Sachen. Ihr ruft, welcher Trick das ist."</strong></li>
+                        <li><strong>Trick 1 zeigen:</strong> "Mega-Box öffnen für 5 Edelsteine &mdash; was ist das?" Antwort: Loot-Box-Trick.</li>
+                        <li><strong>Trick 2 zeigen:</strong> "Ihr wischt Reels von vier bis sechs &mdash; was ist das?" Antwort: Endlos-Scrollen.</li>
+                        <li><strong>Trick 3 zeigen:</strong> "Drei Freunde sind jetzt online &mdash; was ist das?" Antwort: FOMO / Bing-Trick.</li>
+                        <li><em style="color:#f59e0b">▶ Wenn alle die Antworten rufen: "Geil! Ihr habt die Tricks alle drauf!" Wertschätzen!</em></li>
+                        <li><strong>"Und jetzt zeig ich euch, was wirklich hilft."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 4: Drei Sachen die euch schützen (10)  -->
+            <!-- ============================================ -->
+
+            <!-- Folie 11 - Atempause / Übergang -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)">
+                <p class="phase-badge">Atempause</p>
+                <div class="big-quote" style="font-size: 1.3em; max-width: 720px;">
+                    Genug Tricks.<br>
+                    <span class="accent-amber">Jetzt kommt, was DIR hilft.</span>
+                </div>
+                <div class="divider" style="margin-top: 1em;"></div>
+                <p style="font-size: 0.55em; color: var(--text-muted); margin-top: 1em;">
+                    Drei Sachen. Konkret. Heute Abend kannst du loslegen.
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Wechsel der Stimmung. Ruhiger, freundlicher.</em><br><br>
+                    <ul>
+                        <li><strong>"So. Das war jetzt viel."</strong></li>
+                        <li>Pause. Tief durchatmen lassen.</li>
+                        <li><strong>"Ich will euch nicht verängstigen. Ich will euch was an die Hand geben. Drei Sachen, die echt was bringen."</strong></li>
+                        <li><strong>"Ihr könnt heute Abend loslegen. Geht alles in zwei Minuten."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 12 - Schutz 1: Roblox-Chat -->
+            <section>
+                <p class="phase-badge">Phase 4 &middot; Schutz 1</p>
+                <h2 style="font-size: 1.4em;"><span class="accent-green">1.</span> Roblox-Chat aus.</h2>
+                <div class="card" style="max-width: 720px; margin: 0.5em auto; border-left: 3px solid var(--green); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        In Roblox können dich <strong>fremde Leute</strong> anschreiben.<br>
+                        Auch Erwachsene, die so tun, als wären sie Kinder.
+                    </p>
+                </div>
+                <div class="card" style="max-width: 720px; margin: 0.6em auto; text-align: left;">
+                    <p style="font-size: 0.6em; color: var(--text-secondary); margin: 0 0 0.4em 0; font-weight: 700;">So machst du's aus:</p>
+                    <ol class="step-list" style="margin: 0;">
+                        <li>Roblox öffnen &rarr; oben rechts auf <strong>3 Striche</strong> tippen</li>
+                        <li>Auf <strong>Einstellungen</strong> &rarr; <strong>Datenschutz</strong></li>
+                        <li>Bei <strong>&bdquo;Wer kann mit mir chatten?&ldquo;</strong> &rarr; <strong class="accent-green">Niemand</strong> oder <strong class="accent-green">Nur Freunde</strong></li>
+                    </ol>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Konkret. Nicht abstrakt. Schritt für Schritt.</em><br><br>
+                    <ul>
+                        <li><strong>"Roblox &mdash; wer spielt das?"</strong> Hände zählen. Meistens viele.</li>
+                        <li><strong>"In Roblox können dich fremde Leute anschreiben. Erwachsene, die so tun, als wären sie 12 oder 13."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Hier ruhig bleiben, nicht in Horror-Modus gehen!</em></li>
+                        <li><strong>"Das ist nicht oft, aber es kommt vor. Polizei in Deutschland nennt das Cybergrooming."</strong></li>
+                        <li><strong>"Drei Klicks &mdash; und du bist sicher: Drei Striche oben rechts. Datenschutz. 'Wer kann mit mir chatten' &mdash; auf 'Niemand' oder 'Nur Freunde' stellen."</strong></li>
+                        <li><strong>"Macht das heute Abend mit Mama oder Papa zusammen. Geht in zwei Minuten."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Falls Schüler:in fragt "was ist Cybergrooming?": "Wenn Erwachsene online tun, als wären sie Kinder, um sich anzufreunden. Das ist verboten und die Polizei kümmert sich darum."</em></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 13 - Schutz 2: Snap-Map Geistermodus -->
+            <section>
+                <p class="phase-badge">Phase 4 &middot; Schutz 2</p>
+                <h2 style="font-size: 1.4em;"><span class="accent-green">2.</span> Snap-Map: Geistermodus.</h2>
+                <div class="card" style="max-width: 720px; margin: 0.5em auto; border-left: 3px solid var(--green); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        Snapchat zeigt sonst <strong>jedem</strong> auf der Karte,<br>
+                        wo du gerade bist. Auch deiner Schule.<br>
+                        <span class="accent-amber">Auch Leuten, die du nur halb kennst.</span>
+                    </p>
+                </div>
+                <div class="card" style="max-width: 720px; margin: 0.6em auto; text-align: left;">
+                    <p style="font-size: 0.6em; color: var(--text-secondary); margin: 0 0 0.4em 0; font-weight: 700;">So aktivierst du den Geistermodus:</p>
+                    <ol class="step-list" style="margin: 0;">
+                        <li>Snapchat &rarr; <strong>Karte öffnen</strong> (zwei Finger nach unten ziehen)</li>
+                        <li>Oben rechts auf das <strong>Zahnrad-Symbol</strong></li>
+                        <li><strong>&bdquo;Geistermodus&ldquo;</strong> einschalten &rarr; <strong class="accent-green">Bist unsichtbar</strong> 👻</li>
+                    </ol>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ &bdquo;Geistermodus&ldquo; mit Geist-Geste 👻 vormachen!</em><br><br>
+                    <ul>
+                        <li><strong>"Wer hat Snapchat? Hand hoch!"</strong> Hände zählen.</li>
+                        <li><strong>"In Snapchat gibt's eine Karte. Da steht ihr drauf &mdash; mit eurem Standort. Und alle Freunde sehen, wo ihr seid."</strong></li>
+                        <li><strong>"Klingt erstmal cool. Ist aber nicht so cool, wenn ihr 'nen Freund auf der Liste habt, den ihr eigentlich gar nicht so gut kennt &mdash; und der weiß, dass ihr jetzt allein zu Hause seid."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Es gibt 'nen Geistermodus. Geist &mdash; weil ihr unsichtbar werdet."</strong></li>
+                        <li><strong>"Karte aufmachen &mdash; zwei Finger runter. Zahnrad oben rechts. Geistermodus an. Fertig."</strong></li>
+                        <li><strong>"Schaltet das heute aus. Eure Mama wird euch nicht weniger lieben, wenn sie euren Standort nicht sieht."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 14 - Schutz 3: Bei Schock zu den Eltern + Zwei-Welten-Waage -->
+            <section>
+                <p class="phase-badge">Phase 4 &middot; Schutz 3</p>
+                <h2 style="font-size: 1.4em;"><span class="accent-green">3.</span> Bei Schock: zu Mama oder Papa.</h2>
+                <div class="card" style="max-width: 720px; margin: 0.5em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        Wenn du was Schlimmes siehst &mdash; ein heftiges Video, ein eklig Bild, eine fiese Nachricht &mdash;<br>
+                        <strong class="accent-amber">geh zu deinen Eltern.</strong>
+                    </p>
+                </div>
+                <div class="card" style="max-width: 720px; margin: 0.6em auto; border-left: 3px solid var(--green); text-align: left;">
+                    <p style="font-size: 0.65em; margin: 0; line-height: 1.5; font-weight: 700;">
+                        <span class="accent-green">Versprochen:</span> Erwachsene nehmen dir das Smartphone <strong>NICHT</strong> weg, wenn du das erzählst.
+                    </p>
+                    <p style="font-size: 0.55em; color: var(--text-secondary); margin: 0.4em 0 0 0; line-height: 1.4;">
+                        Eure Eltern haben das beim Eltern-Abend gehört. Das ist abgemacht.
+                    </p>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Das ist DER wichtigste Punkt heute. Langsam. Klar.</em><br><br>
+                    <ul>
+                        <li><strong>"Jetzt der wichtigste Punkt. Hört mir kurz richtig zu."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE &mdash; in die Augen</em></li>
+                        <li><strong>"Es kann passieren, dass ihr was Schlimmes seht. Ein heftiges Video. Ein eklig Bild. Jemand, der euch fies anschreibt."</strong></li>
+                        <li><strong>"Manche von euch haben das schon gesehen. Manche bisher nicht. Beides ist okay."</strong></li>
+                        <li><strong>"Wenn das passiert: Geht zu Mama oder Papa. Oder zu wem ihr Vertrauen habt. Oma, Lehrer, Tante."</strong></li>
+                        <li><em style="color:#f59e0b">▶ STARK BETONEN:</em></li>
+                        <li><strong>"Ich verspreche euch: Eure Eltern nehmen euch das Handy NICHT WEG, weil ihr was Schlimmes gesehen habt."</strong></li>
+                        <li><strong>"Eure Eltern haben das beim Eltern-Abend gehört. Sie wissen das. Es ist abgemacht."</strong></li>
+                        <li><strong>"Erwachsene sind nicht der Feind. Sie sind das Stärkste, was ihr habt."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 15 - Bonus: Zwei-Welten-Waage -->
+            <section>
+                <p class="phase-badge">Phase 4 &middot; Bonus</p>
+                <h2 style="font-size: 1.4em;">Die <span class="accent-amber">Zwei-Welten-Waage</span></h2>
+                <div class="card-grid card-grid-2" style="max-width: 750px; margin: 0.5em auto;">
+                    <div class="stat-card" style="border-top: 3px solid var(--red);">
+                        <div style="font-size: 2.5em; line-height: 1;">📱</div>
+                        <div class="stat-number accent-red" style="font-size: 1.4em; margin-top: 0.3em;">1 Stunde</div>
+                        <div class="stat-label">zocken / scrollen</div>
+                    </div>
+                    <div class="stat-card" style="border-top: 3px solid var(--green);">
+                        <div style="font-size: 2.5em; line-height: 1;">⚽🌳</div>
+                        <div class="stat-number accent-green" style="font-size: 1.4em; margin-top: 0.3em;">3 Stunden</div>
+                        <div class="stat-label">draußen, Freunde, Sport</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.7em; color: var(--text-secondary); margin-top: 0.8em; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Damit's <strong class="accent-amber">im Gleichgewicht</strong> bleibt.<br>
+                    <span class="accent-amber">Echte Welt</span> braucht mehr Gewicht als <span class="accent-red">Bildschirm-Welt</span>.
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Mit Händen Waage zeigen!</em><br><br>
+                    <ul>
+                        <li><strong>"Stellt euch eine Waage vor. Auf einer Seite: Handy. Auf der anderen: echte Welt &mdash; draußen, Freunde, Sport."</strong></li>
+                        <li><strong>"Wenn ihr eine Stunde zockt &mdash; braucht ihr drei Stunden draußen, damit's wieder im Lot ist."</strong></li>
+                        <li><strong>"Klingt viel? Ist es nicht. Schule, Spielen, Essen, Hausaufgaben &mdash; das passt easy in den Tag."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Wisst ihr, warum drei? Weil das Handy euer Gehirn so heftig kitzelt, dass es echt was braucht, um wieder runterzukommen."</strong></li>
+                        <li><strong>"Zocken: schnell, laut, viele Reize. Draußen: ruhiger, langsamer. Beides ist gut. Aber das Verhältnis muss stimmen."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 5: Selbstcheck (7 Min)                 -->
+            <!-- ============================================ -->
+
+            <!-- Folie 16 - 3-Fragen-Selbstcheck -->
+            <section>
+                <p class="phase-badge">Phase 5 &middot; Selbstcheck</p>
+                <h2 style="font-size: 1.5em;">Hast du's <span class="accent-amber">im Griff?</span></h2>
+                <p style="font-size: 0.6em; color: var(--text-muted); margin-bottom: 0.8em;">Ehrlich beantworten. Hand hoch, wenn JA.</p>
+                <div class="check-row">
+                    <span class="check-icon">⏰</span>
+                    <span><strong>Eine Stunde ohne Handy</strong> &mdash; geht das easy?</span>
+                </div>
+                <div class="check-row">
+                    <span class="check-icon">🍽️</span>
+                    <span><strong>Beim Essen</strong> &mdash; greifst du dauernd zum Handy?</span>
+                </div>
+                <div class="check-row">
+                    <span class="check-icon">🌙</span>
+                    <span><strong>Nachts</strong> &mdash; wirst du wach, weil's vibriert?</span>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Drei Fragen einzeln. Hand hoch lassen. Niemanden bloßstellen.</em><br><br>
+                    <ul>
+                        <li><strong>"Drei Fragen. Ihr antwortet im Kopf. Wenn ihr wollt &mdash; Hand hoch. Aber jeder, wie er mag."</strong></li>
+                        <li><strong>Frage 1:</strong> "Eine Stunde ohne Handy &mdash; schafft ihr das easy?" Hände zählen.</li>
+                        <li><strong>Frage 2:</strong> "Beim Essen &mdash; greift ihr dauernd zum Handy?" Hände zählen, KEINE Wertung.</li>
+                        <li><strong>Frage 3:</strong> "Wacht ihr nachts auf, weil das Handy vibriert?" Hände zählen.</li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Egal was ihr geantwortet habt &mdash; jetzt wisst ihr's. Und wenn ihr's wisst, könnt ihr was tun."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Wichtig: Niemanden auslachen. Auch Daniel selber sagen, dass er bei Frage 2 "Ja" hätte!</em></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 17 - Auswertung Ampel -->
+            <section>
+                <p class="phase-badge">Selbstcheck &middot; Auswertung</p>
+                <h2 style="font-size: 1.4em;">Wie viele <span class="accent-amber">Ja</span>?</h2>
+                <div class="card-grid card-grid-3" style="max-width: 850px; margin: 0.5em auto;">
+                    <div class="principle-card" style="border-top-color: var(--green);">
+                        <h3 class="accent-green" style="font-size: 1.4em;">0&times; Ja</h3>
+                        <p style="font-size: 0.6em;"><strong>Glückwunsch &mdash; du hast es im Griff.</strong> Bleib so.</p>
+                    </div>
+                    <div class="principle-card" style="border-top-color: var(--amber);">
+                        <h3 class="accent-amber" style="font-size: 1.4em;">1&ndash;2&times; Ja</h3>
+                        <p style="font-size: 0.6em;"><strong>Nicht schlimm.</strong> Aber jetzt weißt du's. Drei Sachen aus heute &mdash; ausprobieren.</p>
+                    </div>
+                    <div class="principle-card" style="border-top-color: var(--red);">
+                        <h3 class="accent-red" style="font-size: 1.4em;">3&times; Ja</h3>
+                        <p style="font-size: 0.6em;"><strong>Red mit Mama oder Papa.</strong> Ehrlich. Sie helfen dir.</p>
+                    </div>
+                </div>
+                <p style="font-size: 0.55em; color: var(--text-muted); margin-top: 0.8em;">
+                    Übrigens: Bei mir wären's auch ein paar Ja. <span class="accent-amber">Und ich bin Erwachsen.</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Locker bleiben. Niemand soll sich schlecht fühlen.</em><br><br>
+                    <ul>
+                        <li><strong>"Null Mal Ja: super. Bleib so. Du hast's drauf."</strong></li>
+                        <li><strong>"Ein- oder zweimal Ja: nicht schlimm. Das ist normal. Aber: jetzt weißt du es. Probier mal die drei Sachen aus heute &mdash; Roblox-Chat aus, Snap-Map Geist, mit Eltern reden."</strong></li>
+                        <li><strong>"Dreimal Ja: das ist viel. Red mit Mama oder Papa darüber. Ganz ehrlich. Sie werden dir nicht das Handy wegnehmen, sie helfen dir."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Ehrlich gesagt: Bei mir wären auch ein paar Ja's. Beim Essen greif ich dauernd zum Handy. Daran arbeite ich auch. Ich bin Erwachsen und es ist trotzdem schwer."</strong></li>
+                        <li><strong>"Wir sind alle in dem Boot."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 6: Schluss-Geschichte + Rauschmiss     -->
+            <!-- ============================================ -->
+
+            <!-- Folie 18 - McDonalds-Story (Mono-Tasking) -->
+            <section>
+                <p class="phase-badge">Phase 6 &middot; Eine Geschichte</p>
+                <h2 style="font-size: 1.3em;">Letzte Woche bei <span class="accent-amber">McDonalds.</span></h2>
+                <div class="card" style="max-width: 750px; margin: 0.6em auto; border-left: 3px solid var(--amber); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.6; font-style: italic;">
+                        Tisch neben mir. Familie, vier Leute.<br>
+                        Jeder hatte einen Burger. Jeder hatte ein Handy.<br><br>
+                        <strong>Keiner hat den anderen angeguckt.</strong><br>
+                        Keiner hat geredet.<br>
+                        Sie haben gekaut, ohne zu schmecken.<br><br>
+                        <span class="accent-red">Sie waren da &mdash; aber nicht wirklich da.</span>
+                    </p>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Langsam. Bildhaft. Die Klasse soll's vor sich sehen.</em><br><br>
+                    <ul>
+                        <li><strong>"Ich erzähl euch noch was, dann sind wir fertig."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Letzte Woche war ich bei McDonalds. Burger holen. Mit meinen Kindern."</strong></li>
+                        <li><strong>"Tisch neben mir saß eine Familie. Vier Leute. Mama, Papa, zwei Kinder. Jeder hatte einen Big Mac vor sich. Jeder hatte ein Handy in der Hand."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Keiner hat den anderen angeguckt. Keiner hat geredet. Sie haben gekaut &mdash; aber sie haben nicht geschmeckt, was sie da essen."</strong></li>
+                        <li><strong>"Sie waren da. Im selben Restaurant. An einem Tisch. Aber nicht wirklich da."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Das war traurig. Und ich hab gedacht: Ich will nicht so eine Familie sein."</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- Folie 19 - Schluss-Anker -->
+            <section data-background-gradient="linear-gradient(135deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%)">
+                <div style="margin-top: -0.3em;">
+                    <h2 style="font-size: 1.7em;">Mach <span class="accent-amber">EINE</span> Sache.</h2>
+                    <div class="divider" style="margin-bottom: 1em;"></div>
+                    <p class="big-quote" style="font-size: 1.1em; max-width: 720px; color: var(--text-secondary); line-height: 1.4;">
+                        Sei <strong class="accent-amber">ganz da</strong>.<br>
+                        Sonst verpasst du <strong class="accent-red">das halbe Leben</strong>.
+                    </p>
+                    <p style="font-size: 0.55em; color: var(--text-muted); margin-top: 1.5em;">
+                        Danke, dass ihr zugehört habt.<br>
+                        <span class="accent-amber">Ihr seid stärker, als ihr denkt.</span>
+                    </p>
+                </div>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ Ruhig. Klar. Das ist der Schluss.</em><br><br>
+                    <ul>
+                        <li><strong>"Wenn ihr eine Sache aus heute mitnehmt, dann das:"</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Wenn ihr was macht &mdash; macht EINE Sache. Nicht drei gleichzeitig."</strong></li>
+                        <li><strong>"Wenn ihr esst &mdash; esst. Wenn ihr mit Freunden seid &mdash; seid mit Freunden. Wenn ihr zockt &mdash; zockt. Aber jeweils nur DAS."</strong></li>
+                        <li><strong>"Sonst verpasst ihr das halbe Leben &mdash; ohne es zu merken."</strong></li>
+                        <li><em style="color:#f59e0b">PAUSE</em></li>
+                        <li><strong>"Das war's. Danke, dass ihr zugehört habt. Ihr habt richtig gut mitgemacht."</strong></li>
+                        <li><strong>"Wenn ihr Fragen habt &mdash; her damit. Wenn nicht, schönen Tag noch."</strong></li>
+                        <li><em style="color:#f59e0b">▶ Jetzt Q&amp;A oder Übergabe an Lehrkraft, je nach Absprache</em></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- PHASE 7: Bonus (nur Doppelstunde 90 Min)     -->
+            <!-- ============================================ -->
+
+            <!-- Folie 20 - KI-Live-Demo (NUR Doppelstunde) -->
+            <section>
+                <span class="bonus-banner">⚡ Bonus &middot; nur Doppelstunde</span>
+                <h2 style="font-size: 1.4em;">KI fragen, was hinter Apps steckt</h2>
+                <div class="card" style="max-width: 750px; margin: 0.5em auto; border-left: 3px solid var(--teal); text-align: left;">
+                    <p style="font-size: 0.7em; margin: 0; line-height: 1.5;">
+                        Ihr nennt mir eine App. Ein Spiel. Ein TikTok-Trend.<br>
+                        <strong class="accent-teal">Wir fragen die KI live, was dahintersteckt.</strong>
+                    </p>
+                </div>
+                <p style="font-size: 0.6em; color: var(--text-secondary); margin-top: 0.8em;">
+                    Was zeigt die App? Was kostet sie? Welche Tricks nutzt sie?<br>
+                    <span class="accent-amber">KI ist nicht nur Gefahr. KI ist auch <strong>euer Werkzeug</strong>.</span>
+                </p>
+                <aside class="notes">
+                    <em style="color:#f59e0b">▶ NUR in der Doppelstunden-Variante! Bei 45 Min weglassen.</em><br><br>
+                    <ul>
+                        <li><strong>"Wir haben noch Zeit. Wer mag, gibt mir einen App-Namen, ein Spiel, einen TikTok-Trend &mdash; egal was."</strong></li>
+                        <li>Vorschläge sammeln. Eines auswählen.</li>
+                        <li><em style="color:#f59e0b">▶ Live-Demo: Claude / ChatGPT auf Beamer. Frage prompten:</em></li>
+                        <li><em>"Erkläre, welche psychologischen Tricks die App [NAME] nutzt, um Kinder länger drin zu halten. Und welche Risiken es für 10-12-Jährige gibt. Sachlich, kindgerecht."</em></li>
+                        <li>Ergebnis vorlesen lassen. Klasse einbeziehen: "Was sagt die KI? Stimmt das mit dem überein, was ihr kennt?"</li>
+                        <li><strong>"KI kann euch helfen, Apps zu durchschauen. Auch eure Eltern können das nutzen."</strong></li>
+                        <li><em style="color:#f59e0b">▶ KEINE Werbung für KI-Beratung / SoD! Sachlich als Werkzeug rahmen.</em></li>
+                    </ul>
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="vendor/revealjs/reveal.js"></script>
+    <script src="vendor/revealjs/notes.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            history: true,
+            touch: true,
+            keyboard: true,
+
+            width: 1280,
+            height: 720,
+            margin: 0.08,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            controls: true,
+            controlsLayout: 'bottom-right',
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+
+            showNotes: false,
+            autoSlide: 0,
+            center: true,
+            loop: false,
+            fragments: true,
+
+            plugins: [ RevealNotes ],
+        });
+    </script>
+</body>
+</html>
