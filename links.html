@@ -75,6 +75,41 @@
     color: #94a3b8;
     line-height: 1.4;
   }
+  .video-card {
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 18px;
+    text-align: left;
+  }
+  .video-card .video-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f59e0b;
+    margin-bottom: 10px;
+  }
+  .video-card .video-wrapper {
+    padding: 56.25% 0 0 0;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .video-card .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .video-card .video-desc {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
   .footer {
     margin-top: 28px;
     font-size: 12px;
@@ -88,6 +123,14 @@
   <div class="badge">3. März 2026 &middot; Eschenburgschule</div>
   <h1>Das erste Smartphone &ndash; <span>Materialien</span></h1>
   <p class="sub">Alle Unterlagen vom Eltern-Austausch zum Mitnehmen</p>
+
+  <div class="video-card">
+    <div class="video-label">Vortrag zum Nachschauen</div>
+    <div class="video-wrapper">
+      <iframe src="https://player.vimeo.com/video/1193377399?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Elternworkshop Video Final"></iframe>
+    </div>
+    <p class="video-desc">Die komplette Aufzeichnung &ndash; falls du nicht dabei sein konntest oder einzelne Teile noch einmal anschauen m&ouml;chtest.</p>
+  </div>
 
   <a href="handout.html" class="link-card">
     <div class="icon">&#128203;</div>
@@ -181,10 +224,10 @@
     <div class="desc">Für alle Geräte &ndash; keine Registrierung, vorbildlicher Datenschutz, von Experten empfohlen</div>
   </a>
 
-  <a href="https://en.help.roblox.com/hc/de/articles/4405807645972-Kindersicherung" class="link-card" target="_blank" rel="noopener">
+  <a href="https://www.medien-kindersicher.de/entertainment/kindersicherung-fuer-roblox" class="link-card" target="_blank" rel="noopener">
     <div class="icon">&#127922;</div>
-    <div class="title">Roblox: Eltern-Account &amp; Chat deaktivieren</div>
-    <div class="desc">Offizielle Roblox-Hilfe &ndash; Kindersicherung einrichten, Chat-Funktionen einschränken</div>
+    <div class="title">Roblox: Kontoeinschr&auml;nkung &amp; Chat deaktivieren</div>
+    <div class="desc">medien-kindersicher.de &ndash; Schritt-f&uuml;r-Schritt: Einstellungen &rarr; Datenschutz &rarr; Kontoeinschr&auml;nkung (sperrt Chat + nur gepr&uuml;fte Spiele) + Eltern-PIN + Ausgabenlimit</div>
   </a>
 
   <a href="https://www.mediennutzungsvertrag.de" class="link-card" target="_blank" rel="noopener">
@@ -197,5 +240,6 @@
     Daniel Gaiswinkler &nbsp;&middot;&nbsp; <a href="https://www.projekt-ev.de">Das Projekt e.V.</a> &nbsp;&middot;&nbsp; Eschenburgschule
   </div>
 </div>
+<script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
